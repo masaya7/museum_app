@@ -53,3 +53,6 @@
 - WebSocket通信
 - mysql
 - vision AI
+
+### 画面遷移図
+https://www.figma.com/file/dhASjQiRTYlXzfAODA9DO7/Untitled?type=design&node-id=0%3A1&mode=design&t=XMsGwkmVIDszYs9d-1
