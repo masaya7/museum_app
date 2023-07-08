@@ -55,4 +55,7 @@
 - vision AI
 
 ### 画面遷移図
-https://www.figma.com/file/dhASjQiRTYlXzfAODA9DO7/Untitled?type=design&node-id=0%3A1&mode=design&t=XMsGwkmVIDszYs9d-1
+https://www.figma.com/file/dhASjQiRTYlXzfAODA9DO7/Untitled?type=design&node-id=53%3A608&mode=design&t=uuOQ4kCjMv1k6DsT-1
+
+### ER図
+[![Image from Gyazo](https://i.gyazo.com/8d826e4ad2c20215353ee79d83fa097b.png)](https://gyazo.com/8d826e4ad2c20215353ee79d83fa097b)
