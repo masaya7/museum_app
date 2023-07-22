@@ -59,3 +59,18 @@ https://www.figma.com/file/dhASjQiRTYlXzfAODA9DO7/Untitled?type=design&node-id=5
 
 ### ER図
 [![Image from Gyazo](https://i.gyazo.com/8d826e4ad2c20215353ee79d83fa097b.png)](https://gyazo.com/8d826e4ad2c20215353ee79d83fa097b)
+
+### 技術選定
+#### フロントエンド:
+- Vue.js: JavaScriptフレームワーク
+- Bootstrap: CSSフレームワーク
+- Flutter: モバイルアプリ開発フレームワーク
+#### バックエンド:
+- Node.js: サーバーサイドのJavaScript
+- Ruby on Rails7系: バックエンドのウェブアプリケーションフレームワーク
+- Ruby3.2.2:メイン言語
+#### 画像処理:
+- VisionAI: 投稿画像にセーフサーチをかけるため（有料）
+#### 画像アップロードと処理:
+- Carrierwave: 画像アップするため
+- MiniMagick: 画像加工するため
