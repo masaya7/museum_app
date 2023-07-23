@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-5 col-md-offset-2">
+    <h3 class="page-header">ログイン画面</h3>
+    <%= form_for(:session,url: login_path) do |f| %>
+    <div class="form-group">
+    <p><%= f.label :email , "メールアドレス"%></p>
+    </div>
+    <p><%= f.email_field :email %></p>
+    <p><%= f.label :password,"パスワード" %></p>
+    <p><%= f.password_field :password %></p>
+    <p><%= f.submit "ログインする", class: "btn btn-primary" %></p>
+    <% end %>
+  </div>
+</div>
