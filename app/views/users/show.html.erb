@@ -1,0 +1,4 @@
+<h2><%= @user.email %></h2>
+<br>
+<p><%= link_to "Eメールアドレスを編集する",edit_user_path(@user) %></p>
+<p><%= link_to "このユーザーを削除する",user_path(@user),method: :delete %></p>
