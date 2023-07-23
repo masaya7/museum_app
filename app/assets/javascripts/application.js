@@ -1,5 +1,6 @@
 
 //= require bootstrap
+//= require rails-ujs
 
 import jquery from "jquery"
 window.$ = jquery
