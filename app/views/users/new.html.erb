@@ -1,0 +1,14 @@
+  <div class="row">
+  <div class="col-md-6 col-md-offset-2">
+    <h3 class="page-header">新規登録する</h3>
+    <%= form_for(@user) do |f| %>
+    <p><%= f.label :email , "メールアドレス"%></p>
+    <p><%= f.email_field :email %></p>
+    <p><%= f.label :password,"パスワード" %></p>
+    <p><%= f.password_field :password %></p>
+    <p><%= f.label :password_confirmation, "パスワード（再入力）" %></p>
+    <p><%= f.password_field :password_confirmation %></p>
+    <p><%= f.submit "登録する", class: "btn btn-primary" %></p>
+    <% end %>
+  </div>
+</div>
