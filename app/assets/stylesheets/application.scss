@@ -13,3 +13,41 @@
  *= require_tree .
  *= require_self
  */
+
+
+@import "bootstrap";
+
+@media screen and (min-width: 500px) {
+   /*　画面サイズ 500px以上で適用　*/
+   input {width:600px;}
+   textarea {
+     width:600px;
+     height:300px;
+   }
+ }
+
+@media screen and (max-width: 499px) {
+   /*　画面サイズ 499pxまで適用　*/
+   input {width:300px;}
+   textarea {
+     width:300px;
+     height:200px;
+   }
+ }
+
+ .btn {
+   margin-top:20px;
+ }
+
+ a {
+   text-decoration:none;
+ }
+
+ a:hover {
+   color:red;
+ }
+
+ .badge a {
+   color:white;
+ }
+
