@@ -16,10 +16,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out
-    respond_to do |format|
-      format.html { redirect_to root_url, notice: "ログアウトしたよ", status: :see_other }
-      format.json { head :no_content }
-    end
+    redirect_to root_url, notice: "ログアウトしたよ", status: :see_other
     
   end
 end
