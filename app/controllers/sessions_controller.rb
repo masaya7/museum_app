@@ -16,7 +16,10 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out
-    redirect_to root_url
-    flash.now[:danger] = "ログアウトしたよ"
+    respond_to do |format|
+      format.html { redirect_to root_url, notice: "ログアウトしたよ", status: :see_other }
+      format.json { head :no_content }
+    end
+    
   end
 end
