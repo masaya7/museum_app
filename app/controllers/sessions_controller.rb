@@ -17,6 +17,5 @@ class SessionsController < ApplicationController
   def destroy
     log_out
     redirect_to root_url, notice: "ログアウトしたよ", status: :see_other
-    
   end
 end
