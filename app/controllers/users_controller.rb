@@ -25,8 +25,12 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_update_params)
-    redirect_to root_path
+    binding.break
+    if @user.update(user_update_params)
+      redirect_to root_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -40,5 +44,10 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email,:password,:password_confirmation)
   end
+
+  def user_update_params
+    params.require(:user).permit(:email)
+  end
+
 end
 

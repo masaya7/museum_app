@@ -3,5 +3,4 @@
 <p><%= link_to "自分の投稿を確認する","#" %></p>
 <p><%= link_to "下書きを編集する","#" %></p>
 <p><%= link_to "共感を確認する","#" %></p>
-<p><%= link_to "Emailを編集する",edit_user_path(@user) %></p>
-<%= flash[:success] %>
+<p><%= link_to "ユーザー情報を編集する",edit_user_path(current_user) %></p>
