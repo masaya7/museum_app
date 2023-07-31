@@ -1,0 +1,6 @@
+<% if @user.img? %>
+  <p>
+    <strong>post img:</strong>
+    <%= image_tag @user.img.url %>
+  </p>
+<% end %>

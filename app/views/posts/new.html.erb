@@ -1,0 +1,8 @@
+<h3 class="page-header">投稿しよ！</h3>
+<%= form_with model:@post do |f| %>
+  <p><%= f.label :image,"画像" %></p>
+  <p><%= f.file_field :image %></p>
+  <p><%= f.label :body,"投稿内容" %></p>
+  <p><%= f.text_area :body %></p>
+  <p><%= f.submit "投稿", class: "btn btn-primary" %></p>
+<% end %>
