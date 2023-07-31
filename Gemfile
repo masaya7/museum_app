@@ -80,3 +80,6 @@ gem 'carrierwave', '~> 3.0'
 gem "mini_magick"
 #パスワードをハッシュにしてセキュリティを上げる
 gem 'bcrypt'
+
+#日本語化
+gem 'enum_help'

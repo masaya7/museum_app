@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @post = Post.all
+    @posts = Post.published
   end
 
   def new
@@ -21,8 +21,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def confirm
+    @post = current_user.posts.draft
+  end
+
   private
   def post_params
-    params.require(:post).permit(:body, :image)
+    params.require(:post).permit(:body, :image, :status)
   end
 end
