@@ -1,14 +1,18 @@
 <h3 class="page-header">一覧</h3>
-<ul class="list-group">
+<ul class="list-group" style="list-style: none;">
   <% @posts.each do |post| %>
   <li class="list-group-item">
     <span class="badge text-danger"><%= link_to "[削除]","#",method: :delete %></span>
-    <div>
+    <li>
       <%= image_tag(post.image_url, width: 100) if post.image? %>
-    </div>
-    <div>
-      <%= post.body %>
-    </div>
+    </li>
+    <li>
+      <%= post.title%>
+    </li>
+    <li>
+      <%= post.body.truncate(20)%>
+      <%= link_to "詳しく読む",post_path(post.id) %>
+    </li>
   </li>
   <% end %>
 </ul>

@@ -1,6 +1,7 @@
-<% if @user.img? %>
-  <p>
-    <strong>post img:</strong>
-    <%= image_tag @user.img.url %>
-  </p>
-<% end %>
+<ul class="list-group" style="list-style: none;">
+  <li><%= image_tag(@post.image_url, width: 100) if @post.image? %></li>
+  <li><%=  @post.title %></li>
+</ul>
+<div class="body"> <!--スクロールバーにしたい-->
+  <p><%=  @post.body %></p>
+</div>

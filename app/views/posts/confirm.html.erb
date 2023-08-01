@@ -4,5 +4,6 @@
       <h1 class="font-weight-normal mt-3">下書き一覧</h1>
     </div>
     <%= render 'index', post: @post %>
+    <%= button_to "編集する", edit_post_path(post.id) %>
   </div>
 </div>
