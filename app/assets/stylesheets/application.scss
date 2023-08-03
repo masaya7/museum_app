@@ -16,7 +16,14 @@
 
 
 @import "bootstrap";
-
+.content-right,.content-left{
+  width: 50%;
+  height: 100px;
+ }
+  
+ .main{
+  display: flex;
+ }
 @media screen and (min-width: 500px) {
    /*　画面サイズ 500px以上で適用　*/
    input {width:600px;}

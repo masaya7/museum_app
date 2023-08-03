@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   resources :users
   resources :posts do
-    collection do
-      get 'confirm'
-    end
+    get 'confirm', on: :collection
+    resource :empathy, only: %i[create destroy]
   end
+
   get '/index', to:'posts#index'
 end

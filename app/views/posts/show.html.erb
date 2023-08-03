@@ -1,7 +1,25 @@
-<ul class="list-group" style="list-style: none;">
-  <li><%= image_tag(@post.image_url, width: 100) if @post.image? %></li>
-  <li><%=  @post.title %></li>
-</ul>
-<div class="body"> <!--スクロールバーにしたい-->
-  <p><%=  @post.body %></p>
+<div class="main">
+  <%= form_with model:@post do |f| %>
+    <div class="content-image-title">
+      <div class='mt-3 mb-3'>
+        <%= image_tag @post.image.url,
+                      id: 'preview',
+                      size: '400x400' %>
+      </div>
+      <p>題名: <%= @post.title %></p>
+    </div>
+    <div class="content-body">
+      <p><%=  @post.body %></p><!--スクロールバーにしたい-->
+    </div>
+    <tr>
+      <td><%= link_to '😀',"#" , method: :post %></td>
+      <td><%= Empathy.count%></td>
+      <td><%= link_to '😭',"#" , method: :post %></td>
+      <td><%= Empathy.count%></td>
+      <td><%= link_to '😍',"#" , method: :post %></td>
+      <td><%= Empathy.count%></td>
+      <td><%= link_to '😤',"#" , method: :post %></td>
+      <td><%= Empathy.count%></td>
+    </tr>
+  <% end %>
 </div>
