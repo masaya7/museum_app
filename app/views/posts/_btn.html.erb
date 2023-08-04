@@ -46,11 +46,3 @@
 </td>
 </tr>
 </table>
-
-
-<!--検討中：DBに登録できるようにする-->
-<%= form_with model:@post do |f| %>
-  <div class="form-group">
-    <%= f.select :empathy, Post.empathies.keys.map { |k| [t("enums.post.empathy.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
-  </div>
-<% end %>
