@@ -6,7 +6,7 @@ class EmpathiesController < ApplicationController
     empathy.save
     redirect_to request.referer
   end
-  
+
   def destroy
     post= Post.find(params[:post_id])
     empathy = current_user.empathies.find_by(post_id: post.id)

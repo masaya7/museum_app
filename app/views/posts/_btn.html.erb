@@ -1,23 +1,56 @@
+<table>
+<tr>
+<td>
 <% if post.empathize_by?(current_user) %>
-  <%= link_to "#", method: :delete do %>
-    <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
-    <%= post.empathies.count %> いいね
+  <%= button_to  post_empathy_path(post.id), method: :delete do%>
+    😀<%= post.empathies.count %>
   <% end %>
 <% else %>
-  <%= link_to "#", method: :post do %>
-    <i class="fas fa-heart" aria-hidden="true"></i>
-    <%= post.empathies.count %> いいね
+  <%= button_to post_empathy_path(post.id), method: :post do %>
+    😀<%= post.empathies.count %>
   <% end %>
 <% end %>
-
-
-<tr>
-  <td><%= link_to '😀',"#" , method: :post %></td>
-  <td><%= Empathy.count%></td>
-  <td><%= link_to '😭',"#" , method: :post %></td>
-  <td><%= Empathy.count%></td>
-  <td><%= link_to '😍',"#" , method: :post %></td>
-  <td><%= Empathy.count%></td>
-  <td><%= link_to '😤',"#" , method: :post %></td>
-  <td><%= Empathy.count%></td>
+</td>
+<td>
+<% if post.empathize_by?(current_user) %>
+  <%= button_to  post_empathy_path(post.id), method: :delete do%>
+    😢<%= post.empathies.count %>
+  <% end %>
+<% else %>
+  <%= button_to post_empathy_path(post.id), method: :post do %>
+    😢<%= post.empathies.count %>
+  <% end %>
+<% end %>
+</td>
+<td>
+<% if post.empathize_by?(current_user) %>
+  <%= button_to  post_empathy_path(post.id), method: :delete do%>
+    😍<%= post.empathies.count %>
+  <% end %>
+<% else %>
+  <%= button_to post_empathy_path(post.id), method: :post do %>
+    😍<%= post.empathies.count %>
+  <% end %>
+<% end %>
+</td>
+<td>
+<% if post.empathize_by?(current_user) %>
+  <%= button_to  post_empathy_path(post.id), method: :delete do%>
+    😤<%= post.empathies.count %>
+  <% end %>
+<% else %>
+  <%= button_to post_empathy_path(post.id), method: :post do %>
+    😤<%= post.empathies.count %>
+  <% end %>
+<% end %>
+</td>
 </tr>
+</table>
+
+
+<!--検討中：DBに登録できるようにする-->
+<%= form_with model:@post do |f| %>
+  <div class="form-group">
+    <%= f.select :empathy, Post.empathies.keys.map { |k| [t("enums.post.empathy.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
+  </div>
+<% end %>

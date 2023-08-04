@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.published
-    #@empathy_count = Empathy.where(post_id: @post.id).count
   end
 
   def show
     @post = Post.find(params[:id])
+
   end
 
   def new
@@ -42,10 +42,6 @@ class PostsController < ApplicationController
 
   def confirm
     @post = current_user.posts.draft
-  end
-
-  def likes
-    @empathize_posts = current_user.empathize_posts
   end
 
   private

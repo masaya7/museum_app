@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users
   resources :posts do
     get 'confirm', on: :collection
+    get 'empathy', on: :collection
     resource :empathy, only: %i[create destroy]
   end
 
