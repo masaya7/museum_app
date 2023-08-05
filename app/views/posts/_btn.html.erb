@@ -3,7 +3,8 @@
     <% emotions = [:happy, :sad, :love, :anger] %>
     <% emotions.each do |emotion| %>
       <td>
-        <% if post.empathize_by?(current_user) %>
+        <% user_empathy = Empathy.find_by(user_id: current_user.id, post_id: post.id) %>
+        <% if user_empathy && user_empathy.empathy.to_sym == emotion %>
           <%= button_to post_empathy_path(post.id), method: :delete do %>
             <%= render_empathy_icon(emotion, post.id) %>
             <%= Empathy.where(empathy: emotion, post_id: post.id).count %>
@@ -18,4 +19,5 @@
     <% end %>
   </tr>
 </table>
+
 <!--posts_helper参照-->
