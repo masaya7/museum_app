@@ -5,6 +5,6 @@ class Empathy < ApplicationRecord
 
   validates :user_id, uniqueness: { scope: :post_id }
 
-  enum empathy: {default: 0, 😀: 1, 😢: 2, 😍: 3, 😤: 4 }
+  enum empathy: {default: 0, happy: 1, sad: 2, love: 3, anger: 4 }
 
 end

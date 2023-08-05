@@ -2,8 +2,8 @@ class EmpathiesController < ApplicationController
 
   def create
     post = Post.find(params[:post_id])
-    empathy = current_user.empathies.new(post_id: post.id)
-    empathy.save
+    empathy_value = Empathy.empathies[params[:empathy]] || Empathy.empathies[:default]
+    empathy = current_user.empathies.create(post_id: post.id, empathy: empathy_value)
     redirect_to request.referer
   end
 

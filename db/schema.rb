@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_08_03_013718) do
   create_table "empathies", force: :cascade do |t|
-    t.string "empathy"
+    t.integer "empathy"
     t.integer "user_id"
     t.integer "post_id"
     t.datetime "created_at", null: false
