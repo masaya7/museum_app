@@ -1,7 +1,9 @@
-  <div class="row">
+<div class="row">
   <div class="col-md-6 col-md-offset-2">
     <h3 class="page-header">新規登録する</h3>
     <%= form_for(@user) do |f| %>
+    <p><%= f.label :name , "Name"%></p>
+    <p><%= f.text_field :name %></p>
     <p><%= f.label :email , "Email"%></p>
     <p><%= f.email_field :email %></p>
     <p><%= f.label :password,"Password" %></p>
