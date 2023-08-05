@@ -1,49 +1,21 @@
 <table>
-<tr>
-<td>
-<% if post.empathize_by?(current_user) %>
-  <%= button_to post_empathy_path(post.id), method: :delete do %>
-    😀<%= Empathy.where(empathy: :happy, post_id: post.id).count %>
-  <% end %>
-<% else %>
-  <%= button_to post_empathy_path(post.id), method: :post, params: { empathy: :happy } do %>
-    😀<%= Empathy.where(empathy: :happy, post_id: post.id).count %>
-  <% end %>
-<% end %>
-
-</td>
-<td>
-<% if post.empathize_by?(current_user) %>
-  <%= button_to post_empathy_path(post.id), method: :delete do %>
-    😢<%= Empathy.where(empathy: :sad, post_id: post.id).count %>
-  <% end %>
-<% else %>
-  <%= button_to post_empathy_path(post.id), method: :post, params: { empathy: :sad } do %>
-    😢<%= Empathy.where(empathy: :sad, post_id: post.id).count %>
-  <% end %>
-<% end %>
-</td>
-<td>
-<% if post.empathize_by?(current_user) %>
-  <%= button_to post_empathy_path(post.id), method: :delete do %>
-    😍<%= Empathy.where(empathy: :love, post_id: post.id).count %>
-  <% end %>
-<% else %>
-  <%= button_to post_empathy_path(post.id), method: :post, params: { empathy: :love } do %>
-    😍<%= Empathy.where(empathy: :love, post_id: post.id).count %>
-  <% end %>
-<% end %>
-</td>
-<td>
-<% if post.empathize_by?(current_user) %>
-  <%= button_to post_empathy_path(post.id), method: :delete do %>
-    😤<%= Empathy.where(empathy: :anger, post_id: post.id).count %>
-  <% end %>
-<% else %>
-  <%= button_to post_empathy_path(post.id), method: :post, params: { empathy: :anger } do %>
-    😤<%= Empathy.where(empathy: :anger, post_id: post.id).count %>
-  <% end %>
-<% end %>
-</td>
-</tr>
+  <tr>
+    <% emotions = [:happy, :sad, :love, :anger] %>
+    <% emotions.each do |emotion| %>
+      <td>
+        <% if post.empathize_by?(current_user) %>
+          <%= button_to post_empathy_path(post.id), method: :delete do %>
+            <%= render_empathy_icon(emotion, post.id) %>
+            <%= Empathy.where(empathy: emotion, post_id: post.id).count %>
+          <% end %>
+        <% else %>
+          <%= button_to post_empathy_path(post.id), method: :post, params: { empathy: emotion } do %>
+            <%= render_empathy_icon(emotion, post.id) %>
+            <%= Empathy.where(empathy: emotion, post_id: post.id).count %>
+          <% end %>
+        <% end %>
+      </td>
+    <% end %>
+  </tr>
 </table>
+<!--posts_helper参照-->
