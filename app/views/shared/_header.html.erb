@@ -1,16 +1,15 @@
 <nav class="navbar navbar-dark bg-dark">
   <ul class="nav navbar-nav navbar-right">
-  <%= link_to "museum-app","/", class: "navbar-brand" %>
     <% if logged_in? %>
+    <%= link_to "museum-app",index_path, class: "navbar-brand" %>
     <li><%= link_to @current_user.name + "さんでログイン中"%></li>
     <li><%= link_to "Mypage", mypage_users_path %></li>
     <li><%= button_to 'ログアウト:あとでlink_toにする?', logout_path, method: :delete, form: { data: { turbo_confirm: "本当に削除しますか？", turbo_frame: '_top' } } %></li>
     <li><%= link_to "投稿を見る",index_path %></li>
     <li><%= link_to "投稿をする",new_post_path%></li>
     <% else %>
-    <li><%= link_to "ログイン",login_path %></li>
-      <li><%= link_to "新規登録",new_user_path %></li>
-      <% end %>
+    <%= link_to "museum-app",root_path, class: "navbar-brand" %>
+    <% end %>
   </ul>
 </nav>
 

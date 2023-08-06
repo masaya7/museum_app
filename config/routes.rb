@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "users#index"
+  root "toppage#top"
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
@@ -15,4 +15,11 @@ Rails.application.routes.draw do
   end
 
   get '/index', to:'posts#index'
+
+  resource :polices, only: [] do
+    collection do
+      get :privacy
+      get :service
+    end
+  end
 end
