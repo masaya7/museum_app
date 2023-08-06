@@ -3,6 +3,7 @@ class Post < ApplicationRecord
 
   belongs_to :user
   has_many :empathies
+  has_one_attached :image
 
   enum status: { published: 0, draft: 1 }
 

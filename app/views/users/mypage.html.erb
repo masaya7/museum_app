@@ -1,0 +1,43 @@
+<h3 class="page-header">自分の投稿</h3>
+<ul class="list-group" >
+  <% @posts.each do |post| %>
+    <ul class="list-group-item" style="list-style: none;">
+      <li>
+        <%= image_tag(post.image_url, width: 100) if post.image? %>
+      </li>
+      <li>
+        <%= post.title%>
+      </li>
+      <li>
+        <%= post.body.truncate(20)%>
+        <%= link_to "詳しく読む",post_path(post.id) %>
+        <!-- 共感ボタンを設置-->
+        <td><%= render "posts/btn", post: post %></td>
+      </li>
+    </ul>
+  <% end %>
+</ul>
+
+<h3 class="page-header">共感したもの</h3>
+<ul class="list-group" >
+  <ul class="list-group-item" >
+    <h3><%= link_to "共感した感情ごとに見る",empathy_users_path%></h3> <!--投稿が横並び/スライドになるように変更する-->
+    <% @post.each do |empathy| %>
+      <div>
+        <%= image_tag empathy.post.image.url %>
+        <h3><%= link_to empathy.post.title, post_path(empathy.post) %></h3>
+      </div>
+    <% end %>
+  </ul>
+</ul>
+
+
+<h3 class="page-header">下書き</h3>
+  <ul class="list-group" style="list-style: none;">
+    <% @post_draft.each do |post| %>
+      <li><%= image_tag post.image.url %></li>
+      <li><%= post.title%></li>
+      <li><%= post.body.truncate(20)%></li>
+      <li><%= link_to "編集する", edit_post_path(post) %></li>
+    <% end %>
+  </ul>

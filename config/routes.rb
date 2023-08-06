@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  resources :users
+  resources :users do
+    get 'mypage', on: :collection
+    get 'empathy', on: :collection
+  end
   resources :posts do
-    get 'confirm', on: :collection
+    get 'draft', on: :collection
     get 'empathy', on: :collection
     resource :empathy, only: %i[create destroy]
   end

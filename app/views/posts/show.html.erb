@@ -11,15 +11,6 @@
     <div class="content-body">
       <p><%=  @post.body %></p><!--スクロールバーにしたい-->
     </div>
-    <tr>
-      <td><%= link_to '😀',"#" , method: :post %></td>
-      <td><%= Empathy.count%></td>
-      <td><%= link_to '😭',"#" , method: :post %></td>
-      <td><%= Empathy.count%></td>
-      <td><%= link_to '😍',"#" , method: :post %></td>
-      <td><%= Empathy.count%></td>
-      <td><%= link_to '😤',"#" , method: :post %></td>
-      <td><%= Empathy.count%></td>
-    </tr>
+    <p><%= render "posts/btn", post: @post %></p>
   <% end %>
 </div>

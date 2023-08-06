@@ -39,13 +39,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def mypage
+    @posts = current_user.posts.published
+    @post = current_user.empathies.where.not(empathy: nil).includes(:post)
+    @post_draft = current_user.posts.draft
+  end
+
+  def empathy
+    @post_happy = current_user.empathies.where(empathy: :happy).includes(:post)
+    @post_sad = current_user.empathies.where(empathy: :sad).includes(:post)
+    @post_love = current_user.empathies.where(empathy: :love).includes(:post)
+    @post_anger = current_user.empathies.where(empathy: :anger).includes(:post)
+  end
+
   private
   def user_params
     params.require(:user).permit(:email,:password,:password_confirmation, :name)
-  end
-
-  def user_update_params
-    params.require(:user).permit(:email)
   end
 
 end

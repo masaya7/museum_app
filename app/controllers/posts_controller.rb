@@ -40,7 +40,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def confirm
+  def draft
     @post = current_user.posts.draft
   end
 

@@ -1,0 +1,39 @@
+<h3 class="page-header">共感したもの</h3>
+<ul class="list-group" >
+  <ul class="list-group-item" >
+    <h3>Happy</h3> <!--投稿が横並びになるように変更する-->
+    <% @post_happy.each do |empathy| %>
+      <div>
+        <%= image_tag empathy.post.image.url %>
+        <h3><%= link_to empathy.post.title, post_path(empathy.post) %></h3>
+      </div>
+    <% end %>
+  </ul>
+  <ul class="list-group-item" >
+    <h3>Sad</h3>
+    <% @post_sad.each do |empathy| %>
+      <div>
+        <%= image_tag empathy.post.image.url %>
+        <h3><%= link_to empathy.post.title, post_path(empathy.post) %></h3>
+      </div>
+    <% end %>
+  </ul>
+  <ul class="list-group-item" >
+    <h3>Love</h3>
+    <% @post_love.each do |empathy| %>
+      <div>
+        <%= image_tag empathy.post.image.url %>
+        <h3><%= link_to empathy.post.title, post_path(empathy.post) %></h3>
+      </div>
+    <% end %>
+  </ul>
+  <ul class="list-group-item" >
+    <h3>Anger</h3>
+    <% @post_anger.each do |empathy| %>
+      <div>
+        <%= image_tag empathy.post.image.url %>
+        <h3><%= link_to empathy.post.title, post_path(empathy.post) %></h3>
+      </div>
+    <% end %>
+  </ul>
+</ul>
