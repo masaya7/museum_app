@@ -1,43 +1,87 @@
 <h3 class="page-header">自分の投稿</h3>
-<ul class="list-group" >
+<ul class="post-group">
   <% @posts.each do |post| %>
-    <ul class="list-group-item" style="list-style: none;">
-      <li>
-        <%= image_tag(post.image_url, width: 100) if post.image? %>
-      </li>
-      <li>
-        <%= post.title%>
-      </li>
-      <li>
-        <%= post.body.truncate(20)%>
-        <%= link_to "詳しく読む",post_path(post.id) %>
-        <!-- 共感ボタンを設置-->
-        <td><%= render "posts/btn", post: post %></td>
-      </li>
+    <ul class="post-group-item">
+      <div class="item-left">
+        <li class="image">
+          <div class="frame-image">
+            <%= image_tag("額縁.png", alt: "額縁", class: "frame-inner-image") %>
+            <%= image_tag(post.image_url, size:"120x160",class: "content-image") if post.image? %>
+          </div>
+        </li>
+      </div>
+      <div class="item-right">
+        <li class="title">
+          <%= "title:" + post.title.truncate(10) %>
+        </li>
+        <li class="body">
+          <%= post.body.truncate(50) %>
+          <%= link_to "詳しく読む", post_path(post.id) %>
+        </li>
+        <li class="button">
+          <%= render "posts/btn", post: post %>
+        </li>
+      </div>
     </ul>
   <% end %>
 </ul>
 
-<h3 class="page-header">共感したもの</h3>
-<ul class="list-group" >
-  <ul class="list-group-item" >
-    <h3><%= link_to "共感した感情ごとに見る",empathy_users_path%></h3> <!--投稿が横並び/スライドになるように変更する-->
-    <% @post.each do |empathy| %>
-      <div>
-        <%= image_tag empathy.post.image.url %>
-        <h3><%= link_to empathy.post.title, post_path(empathy.post) %></h3>
+<h3 class="page-header">共感したもの<%= link_to "共感した感情ごとに見る",empathy_users_path%></h3> <!--投稿が横並び/スライドになるように変更する-->
+<ul class="post-group">
+  <% @post_empathy.each do |empathy| %>
+    <ul class="post-group-item">
+      <div class="item-left">
+        <li class="image">
+          <div class="frame-image">
+            <%= image_tag("額縁.png", alt: "額縁", class: "frame-inner-image") %>
+            <%= image_tag empathy.post.image.url, size:"120x160",class: "content-image"%>
+          </div>
+        </li>
       </div>
-    <% end %>
-  </ul>
+      <div class="item-right">
+        <li class="title">
+          <%= "title:" + empathy.post.title.truncate(10) %>
+        </li>
+        <li class="body">
+          <%= empathy.post.body.truncate(50) %>
+          <%= link_to "詳しく読む", post_path(empathy.post.id) %>
+        </li>
+        <li class="button">
+          <%= render "posts/btn", post: empathy.post %>
+        </li>
+      </div>
+    </ul>
+  <% end %>
 </ul>
 
 
+
+
+
 <h3 class="page-header">下書き</h3>
-  <ul class="list-group" style="list-style: none;">
-    <% @post_draft.each do |post| %>
-      <li><%= image_tag post.image.url %></li>
-      <li><%= post.title%></li>
-      <li><%= post.body.truncate(20)%></li>
-      <li><%= link_to "編集する", edit_post_path(post) %></li>
-    <% end %>
-  </ul>
+<ul class="post-group">
+  <% @post_draft.each do |post| %>
+    <ul class="post-group-item">
+      <div class="item-left">
+        <li class="image">
+          <div class="frame-image">
+            <%= image_tag("額縁.png", alt: "額縁", class: "frame-inner-image") %>
+            <%= image_tag(post.image_url, size:"120x160",class: "content-image") if post.image? %>
+          </div>
+        </li>
+      </div>
+      <div class="item-right">
+        <li class="title">
+          <%= "title:" + post.title.truncate(10) %>
+        </li>
+        <li class="body">
+          <%= post.body.truncate(50) %>
+          <%= link_to "詳しく読む", post_path(post.id) %>
+        </li>
+        <li class="button">
+          <%= render "posts/btn", post: post %>
+        </li>
+      </div>
+    </ul>
+  <% end %>
+</ul>

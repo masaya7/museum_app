@@ -1,0 +1,22 @@
+<ul class="post-group-item">
+  <div class="item-left">
+    <li class="image">
+      <div class="frame-image">
+        <%= image_tag("額縁.png", alt: "額縁", class: "frame-inner-image") %>
+        <%= image_tag post.image.url, size:"120x160",class: "content-image"%>
+      </div>
+    </li>
+  </div>
+  <div class="item-right">
+    <li class="title">
+      <%= "title:" + post.title.truncate(10) %>
+    </li>
+    <li class="body">
+      <%= post.body.truncate(50) %>
+      <%= link_to "詳しく読む", post_path(post.id) %>
+    </li>
+    <li class="button">
+      <%= render "posts/btn", post: post %>
+    </li>
+  </div>
+</ul>

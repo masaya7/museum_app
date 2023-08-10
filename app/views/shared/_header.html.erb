@@ -12,7 +12,7 @@
       <% if logged_in? %>
         <li><%= button_to "投稿をする", new_post_path, method: :get %></li>
         <li><%= button_to "Mypage", mypage_users_path, method: :get %></li>
-        <li><%= link_to "Mypage_編集", edit_user_path(current_user), method: :get  %></li>
+        <li><%= link_to "Mypage_編集", "#", method: :get  %></li>
         <li><%= button_to 'ログアウト', logout_path, method: :delete, form: { data: { turbo_confirm: "本当に削除しますか？", turbo_frame: '_top' } } %></li>
         <li><%= button_to @current_user.name + "さんでログイン中", method: :get %></li>
       <% else %>

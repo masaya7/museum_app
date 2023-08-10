@@ -41,7 +41,7 @@ class UsersController < ApplicationController
 
   def mypage
     @posts = current_user.posts.published
-    @post = current_user.empathies.where.not(empathy: nil).includes(:post)
+    @post_empathy = current_user.empathies.where.not(empathy: nil).includes(:post)
     @post_draft = current_user.posts.draft
   end
 
