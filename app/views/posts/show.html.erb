@@ -1,16 +1,26 @@
-<div class="main">
+<div class="show">
   <%= form_with model:@post do |f| %>
-    <div class="content-image-title">
-      <div class='mt-3 mb-3'>
-        <%= image_tag @post.image.url,
-                      id: 'preview',
-                      size: '400x400' %>
-      </div>
-      <p>題名: <%= @post.title %></p>
-    </div>
-    <div class="content-body">
-      <p><%=  @post.body %></p><!--スクロールバーにしたい-->
-    </div>
-    <p><%= render "posts/btn", post: @post %></p>
+    <ul class="show-group">
+      <ul class="show-item-left">
+        <ul class="show-image">
+          <li class="show-frame">
+            <%= image_tag("額縁.png", alt: "額縁", class: "show-frame-inner") %>
+            <%= image_tag @post.image.url,class: "image-inner"%>
+          </li>
+        </ul>
+      </ul>
+      <ul class="show-item-right">
+        <li class="show-title">
+          <%= "title:" + @post.title.truncate(10) %>
+        </li>
+        <li class="show-body">
+          <%= @post.body.truncate(50) %>
+          <%= link_to "詳しく読む", post_path(@post.id) %>
+        </li>
+        <li class="button">
+          <%= render "posts/btn", post: @post %>
+        </li>
+      </ul>
+    </ul>
   <% end %>
 </div>
