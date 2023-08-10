@@ -16,7 +16,7 @@
 
 @import "bootstrap";
 
-/* application.scss */
+/* postのindex */
 .post-group {
   display: flex;
   flex-wrap: wrap;
@@ -55,7 +55,7 @@
 .frame-image {
   position: relative;
   width: 100%;
-  padding-top: 100%; 
+  padding-top: 100%;
   max-width: 70%;
   margin: 0;
   background: url("額縁.png") center/cover no-repeat;
@@ -69,11 +69,11 @@
 }
 
 .content-image {
-  width: 65%; 
+  width: 65%;
   position: absolute;
   object-fit: contain;
-  top: 20%; 
-  left: 18%; 
+  top: 20%;
+  left: 18%;
 }
 
 .title {
@@ -96,3 +96,72 @@
   text-align: center;
 }
 
+/*footer*/
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #f5f5f5;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer li {
+  margin: 0 10px;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #333;
+}
+
+
+/*top_page*/
+
+.content {
+  width: calc(100vw / 3);
+  height: 300px;
+}
+
+.wrap {
+  overflow: hidden;
+  display: flex;
+  height: calc(100vh - (66px));
+  margin-bottom: 0px;
+}
+.fixed-text {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: white; /* You can adjust the color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 2; /* Ensure the text is above the images */
+}
+
+.slideshow {
+  display: flex;
+  width: calc(100vw * 26 * 3);
+  animation: loop-slide 100s infinite linear 1s both;
+}
+
+@keyframes loop-slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: opacity(0.7) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}

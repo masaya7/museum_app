@@ -6,7 +6,7 @@
         <li class="image">
           <div class="frame-image">
             <%= image_tag("額縁.png", alt: "額縁", class: "frame-inner-image") %>
-            <%= image_tag(post.image_url, class: "content-image") if post.image? %>
+            <%= image_tag(post.image_url, size:"120x160",class: "content-image") if post.image? %>
           </div>
         </li>
       </div>

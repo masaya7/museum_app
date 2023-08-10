@@ -1,4 +1,12 @@
-<div class='mt-3 mb-3'>
-  <%= image_tag 'logo.png',id: 'logo',size: '400x400' %></div>
-<%= link_to "ログイン",login_path %>
-<%= link_to "新規登録",new_user_path %>
+<div class="wrap">
+  <ul class="slideshow">
+    <%= (1..10).map do |num| %>
+      <li class="content">
+        <%= image_tag "photo#{num}.jpg", class: 'slide-image' %>
+        <%= image_tag "image#{num}.jpg", class: 'slide-image' %>
+        <%= image_tag "graph#{num}.jpg", class: 'slide-image' %>
+      </li>
+    <% end %>
+  </ul>
+  <div class="fixed-text"><%=link_to "あなただけの美術館を作ろう" ,new_user_path %></div>
+</div>
