@@ -5,17 +5,16 @@
         <ul class="show-image">
           <li class="show-frame">
             <%= image_tag("額縁.png", alt: "額縁", class: "show-frame-inner") %>
-            <%= image_tag @post.image.url,class: "image-inner"%>
+            <%= image_tag @post.image.url,class: "show-image-inner"%>
           </li>
         </ul>
       </ul>
       <ul class="show-item-right">
         <li class="show-title">
-          <%= "title:" + @post.title.truncate(10) %>
+          <%= "title:" + @post.title.truncate(15) %>
         </li>
         <li class="show-body">
-          <%= @post.body.truncate(50) %>
-          <%= link_to "詳しく読む", post_path(@post.id) %>
+          <%= @post.body %>
         </li>
         <li class="button">
           <%= render "posts/btn", post: @post %>

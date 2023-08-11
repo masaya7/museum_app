@@ -1,11 +1,11 @@
 <div class="show">
   <%= form_with model:@post do |f| %>
-    <ul class="show-post-group">
+    <ul class="shoe-post-group">
       <ul class="show-item-left">
         <ul class="show-image">
           <li class="show-frame">
             <%= f.label :image,"画像", class: "show-frame-inner" %>
-            <%= f.file_field :image,class: "image-inner" %>
+            <%= f.file_field :image,class: "content-image" %>
           </li>
         </ul>
       </ul>
@@ -21,6 +21,7 @@
           <div class="form-group">
             <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
           </div>
+           <p><%= f.submit "投稿", class: "btn btn-primary" %></p>
       </ul>
     </ul>
   <% end %>

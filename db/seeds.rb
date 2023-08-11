@@ -7,12 +7,12 @@
 end
 
 User.all.each do |user|
-  5.times do
+  5.times do |i|
     post = Post.create!(
       user_id: user.id,
-      title: "title",
-      body: "body",
-      image: File.open(Rails.root.join("app/assets/images/sample.png")),
+      title: "title#{i+1}",
+      body: "body#{i+1}",
+      image: File.open(Rails.root.join("app/assets/images/image#{i+1}.jpg")),
       status: rand(0..1)
     )
 
