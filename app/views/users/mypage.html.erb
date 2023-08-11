@@ -6,16 +6,16 @@
         <li class="image">
           <div class="frame-image">
             <%= image_tag("額縁.png", alt: "額縁", class: "frame-inner-image") %>
-            <%= image_tag(post.image_url, size:"120x160",class: "content-image") if post.image? %>
+            <%= image_tag(post.image_url, size:"120x160",class: "image-inner")%>
           </div>
         </li>
       </div>
       <div class="item-right">
         <li class="title">
-          <%= "title:" + post.title.truncate(10) %>
+          <%=post.title%>
         </li>
         <li class="body">
-          <%= post.body.truncate(50) %>
+          <%= post.body%>
           <%= link_to "詳しく読む", post_path(post.id) %>
         </li>
         <li class="button">
@@ -53,11 +53,6 @@
     </ul>
   <% end %>
 </ul>
-
-
-
-
-
 <h3 class="page-header">下書き</h3>
 <ul class="post-group">
   <% @post_draft.each do |post| %>
