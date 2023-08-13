@@ -1,13 +1,28 @@
-<h3 class="page-header">投稿しよ！</h3>
-<%= form_with model:@post do |f| %>
-  <p><%= f.label :image,"画像" %></p>
-  <p><%= f.file_field :image %></p>
-  <p><%= f.label :body,"投稿内容" %></p>
-  <p><%= f.text_area :body %></p>
-  <p><%= f.submit "投稿", class: "btn btn-primary" %></p>
-  <div class="form-group">
-    <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
-  </div>
-<% end %>
-
-
+<div class="show">
+  <%= form_with model:@post do |f| %>
+    <ul class="show-group">
+      <ul class="show-item-left">
+        <ul class="show-image">
+          <li class="show-frame">
+            <%= f.label :image,"画像", class: "show-frame-inner" %>
+            <%= f.file_field :image,class: "content-image" %>
+          </li>
+        </ul>
+      </ul>
+      <ul class="show-item-right">
+        <li class="show-title">
+            <%= f.label :title,"タイトル" %>
+            <%= f.text_area :title %>
+        </li>
+        <li class="show-body">
+            <%= f.label :body,"投稿内容" %>
+            <%= f.text_area :body %>
+        </li>
+        <div class="form-group">
+            <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
+      </div>
+          <p><%= f.submit "投稿", class: "btn btn-primary" %></p>
+      </ul>
+    </ul>
+  <% end %>
+</div>

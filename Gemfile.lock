@@ -328,7 +328,7 @@ DEPENDENCIES
   rspec-rails
   rubocop (~> 1.54)
   selenium-webdriver
-  sentry-rails
+  sentry-rails (~> 5.10)
   sentry-ruby (~> 5.10)
   sprockets-rails
   sqlite3 (~> 1.4)
