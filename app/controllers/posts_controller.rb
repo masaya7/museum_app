@@ -30,8 +30,8 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      flash[:success] = "編集"
-      redirect_to @post
+      flash[:success] = "編集しました"
+      redirect_to draft_posts_path
     else
       render 'edit'
     end
@@ -40,12 +40,12 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     if @post.destroy
-      redirect_to "/",flash: {danger: "投稿を削除しました"}
+      redirect_to mypage_users_path,flash: {danger: "投稿を削除しました"}
     end
   end
 
   def draft
-    @post = current_user.posts.draft
+    @post = current_user.posts.draft.order(created_at: :desc)
   end
 
   private

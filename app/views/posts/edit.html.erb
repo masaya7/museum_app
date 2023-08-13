@@ -12,10 +12,10 @@
       <p><%= f.label :body,"投稿内容" %></p>
       <p><%= f.text_area :body %></p>
     </div>
-    <p><%= f.submit "投稿", class: "btn btn-primary" %></p>
     <div class="form-group">
       <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
     </div>
+    <div><%= f.submit "OK", class: "btn btn-primary" %></div>
   <% end %>
 </div>
 
