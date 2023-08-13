@@ -12,7 +12,7 @@
       </div>
       <div class="item-right">
         <li class="title">
-          <%=post.title.truncate(15)%>
+          <%="題名:" + post.title.truncate(15)%>
         </li>
         <li class="body">
           <%= post.body.truncate(100)%>
@@ -40,7 +40,7 @@
       </div>
       <div class="item-right">
         <li class="title">
-          <%= "title:" + empathy.post.title.truncate(10) %>
+          <%= "題名:" + empathy.post.title.truncate(10) %>
         </li>
         <li class="body">
           <%= empathy.post.body.truncate(50) %>
@@ -67,7 +67,7 @@
       </div>
       <div class="item-right">
         <li class="title">
-          <%= "title:" + post.title.truncate(10) %>
+          <%= "題名:" + post.title.truncate(10) %>
         </li>
         <li class="body">
           <%= post.body.truncate(50) %>

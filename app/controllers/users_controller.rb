@@ -40,16 +40,16 @@ class UsersController < ApplicationController
   end
 
   def mypage
-    @posts = current_user.posts.published
-    @post_empathy = current_user.empathies.where.not(empathy: nil).includes(:post)
-    @post_draft = current_user.posts.draft
+    @posts = current_user.posts.published.order(created_at: :desc)
+    @post_empathy = current_user.empathies.where.not(empathy: nil).includes(:post).order(created_at: :desc)
+    @post_draft = current_user.posts.draft.order(created_at: :desc)
   end
 
   def empathy
-    @post_happy = current_user.empathies.where(empathy: :happy).includes(:post)
-    @post_sad = current_user.empathies.where(empathy: :sad).includes(:post)
-    @post_love = current_user.empathies.where(empathy: :love).includes(:post)
-    @post_anger = current_user.empathies.where(empathy: :anger).includes(:post)
+    @post_happy = current_user.empathies.where(empathy: :happy).includes(:post).order(created_at: :desc)
+    @post_sad = current_user.empathies.where(empathy: :sad).includes(:post).order(created_at: :desc)
+    @post_love = current_user.empathies.where(empathy: :love).includes(:post).order(created_at: :desc)
+    @post_anger = current_user.empathies.where(empathy: :anger).includes(:post).order(created_at: :desc)
   end
 
   private

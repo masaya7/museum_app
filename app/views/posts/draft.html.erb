@@ -2,7 +2,7 @@
   <ul class="list-group" style="list-style: none;">
     <% @post.each do |post| %>
       <li><%= image_tag(post.image_url, width: 100) if post.image? %></li>
-      <li><%= post.title%></li>
+      <li><%= "題名：" + post.title%></li>
       <li><%= post.body.truncate(20)%></li>
       <li><%= button_to "削除", post_path(post), method: :delete %></li>
       <li><%= button_to "編集する", edit_post_path(post), method: :get%></li>
