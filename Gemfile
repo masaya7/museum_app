@@ -83,3 +83,10 @@ gem 'bcrypt'
 
 #日本語化
 gem 'enum_help'
+gem "dockerfile-rails", ">= 1.5", :group => :development
+
+gem "pg", "~> 1.5"
+
+gem "sentry-ruby", "~> 5.10"
+
+gem "sentry-rails", "~> 5.10"
