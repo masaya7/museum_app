@@ -106,6 +106,7 @@ GEM
     enum_help (0.0.19)
       activesupport (>= 3.0.0)
     erubi (1.12.0)
+    excon (0.100.0)
     execjs (2.8.1)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
@@ -113,6 +114,22 @@ GEM
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
     ffi (1.15.5)
+    fog-aws (3.19.0)
+      fog-core (~> 2.1)
+      fog-json (~> 1.1)
+      fog-xml (~> 0.1)
+    fog-core (2.3.0)
+      builder
+      excon (~> 0.71)
+      formatador (>= 0.2, < 2.0)
+      mime-types
+    fog-json (1.2.0)
+      fog-core
+      multi_json (~> 1.10)
+    fog-xml (0.1.4)
+      fog-core
+      nokogiri (>= 1.5.11, < 2.0.0)
+    formatador (1.1.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.14.1)
@@ -146,9 +163,13 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
+    mime-types (3.5.0)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2023.0808)
     mini_magick (4.12.0)
     mini_mime (1.1.2)
     minitest (5.18.1)
+    multi_json (1.15.0)
     net-imap (0.3.6)
       date
       net-protocol
@@ -316,11 +337,12 @@ DEPENDENCIES
   dockerfile-rails (>= 1.5)
   enum_help
   factory_bot_rails
+  fog-aws
   importmap-rails
   jbuilder
   jquery-rails
   mini_magick
-  pg (~> 1.5)
+  pg
   puma (~> 5.0)
   rails (~> 7.0.6)
   rails-ujs
@@ -330,6 +352,7 @@ DEPENDENCIES
   selenium-webdriver
   sentry-rails (~> 5.10)
   sentry-ruby (~> 5.10)
+  sprockets (~> 4.0)
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails

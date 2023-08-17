@@ -7,7 +7,8 @@ ruby "3.2.2"
 gem "rails", "~> 7.0.6"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'sprockets', '~> 4.0'
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
@@ -85,8 +86,14 @@ gem 'bcrypt'
 gem 'enum_help'
 gem "dockerfile-rails", ">= 1.5", :group => :development
 
-gem "pg", "~> 1.5"
 
 gem "sentry-ruby", "~> 5.10"
 
 gem "sentry-rails", "~> 5.10"
+#awsを使うのに必要
+gem 'fog-aws'
+
+
+group :production do
+  gem 'pg'
+end

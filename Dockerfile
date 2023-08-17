@@ -57,7 +57,7 @@ RUN yarn install --frozen-lockfile
 # Copy application code
 COPY --link . .
 
-## Precompiling assets for production without requiring secret RAILS_MASTER_KEY
+# Precompiling assets for production without requiring secret RAILS_MASTER_KEY
 RUN SECRET_KEY_BASE=DUMMY ./bin/rails assets:precompile
 
 
