@@ -5,8 +5,14 @@
 #   gem "sqlite3"
 #
 default: &default
-  adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  adapter: mysql2
+  encoding: utf8mb4
+  charset: utf8mb4
+  collation: utf8mb4_general_ci
+  username: masaya
+  password: museummasaya
+  host: database-1.c6pooahd6tao.ap-northeast-1.rds.amazonaws.com
+  pool: 5
   timeout: 5000
 
 development:
@@ -22,6 +28,4 @@ test:
 
 production:
   <<: *default
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
+  datebase: museum-production
