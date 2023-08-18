@@ -94,3 +94,6 @@ gem "sentry-rails", "~> 5.10"
 gem 'fog-aws'
 
 
+group :production do
+  gem "pg", "~> 1.5.3"
+end
