@@ -1,4 +1,4 @@
-
+/*このファイルを修正するとcss変わる*/
 
 @import "bootstrap";
 /* postのindex */
@@ -27,7 +27,8 @@
   align-items: center;
   padding: 0 5px;
   height: 100%;
-  width: 50%; 
+  width: 50%;
+  position: relative;
 }
 
 .image {
@@ -35,6 +36,7 @@
   display: flex;
   justify-content: center;
   margin: 0;
+  position: relative;
 }
 
 .frame-image {
@@ -57,8 +59,9 @@
   width: 65%;
   position: absolute;
   object-fit: contain;
-  top: 20%;
-  left: 18%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .title {
@@ -81,6 +84,14 @@
   text-align: center;
 }
 
+/*header*/
+.fixed-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
 /*footer*/
 .footer {
   position: fixed;
