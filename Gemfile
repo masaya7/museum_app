@@ -91,9 +91,9 @@ gem "sentry-ruby", "~> 5.10"
 
 gem "sentry-rails", "~> 5.10"
 #awsを使うのに必要
-gem 'fog-aws'
-
-
 group :production do
-  gem "pg", "~> 1.5.3"
+  gem 'fog-aws'
+  gem 'pg'
+  gem 'dotenv-rails'
+  gem 'aws-sdk-s3'
 end

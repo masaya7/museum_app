@@ -1,31 +1,22 @@
-# SQLite. Versions 3.8.0 and up are supported.
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem "sqlite3"
-#
 default: &default
-  adapter: mysql2
-  encoding: utf8mb4
-  charset: utf8mb4
-  collation: utf8mb4_general_ci
-  username: masaya
-  password: museummasaya
-  host: database-1.c6pooahd6tao.ap-northeast-1.rds.amazonaws.com
-  pool: 5
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
 development:
   <<: *default
+  adapter: sqlite3
   database: db/development.sqlite3
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  adapter: sqlite3
+  database: museum_msy_app_test
 
 production:
-  <<: *default
-  datebase: museum-production
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: museum_msy_app_production
+  username: museunmsyapp
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+
