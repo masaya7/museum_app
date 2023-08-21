@@ -1,33 +1,20 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
 
 @import "bootstrap";
-
 /* postのindex */
+.page-header{
+  margin-top: 100px;
+}
 .post-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px; 
+  gap: 20px;
 }
 
 .post-group-item {
   position: relative;
   list-style: none;
-  width: calc(50% - 20px); 
-  padding: 20px; 
+  width: calc(50% - 20px);
+  padding: 20px;
   box-sizing: border-box;
   display: flex;
   align-items: flex-start;
@@ -42,7 +29,8 @@
   align-items: center;
   padding: 0 5px;
   height: 100%;
-  width: 50%; 
+  width: 50%;
+  position: relative;
 }
 
 .image {
@@ -50,6 +38,7 @@
   display: flex;
   justify-content: center;
   margin: 0;
+  position: relative;
 }
 
 .frame-image {
@@ -72,8 +61,9 @@
   width: 65%;
   position: absolute;
   object-fit: contain;
-  top: 20%;
-  left: 18%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .title {
@@ -124,6 +114,7 @@
 /*top_page*/
 
 .content {
+  list-style: none;
   width: calc(100vw / 3);
   height: 300px;
 }
@@ -140,9 +131,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 24px;
-  color: white; /* You can adjust the color */
+  color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  z-index: 2; /* Ensure the text is above the images */
+  z-index: 2;
 }
 
 .slideshow {

@@ -1,0 +1,21 @@
+
+<% @posts.each do |f| %>
+  <table class="table table-bordered bg-white">
+    <tr>
+      <td>ID:<%= f.id %></td>
+    </tr>
+    <tr>
+      <td>タイトル：<%= f.title %></td>
+    </tr>
+    <tr>
+      <td>ユーザー名：<%= f.user.name %></td>
+    </tr>
+    <tr>
+      <td>本文：<%= f.body %></td>
+    </tr>
+  <td>
+    <%= link_to "詳細", admin_post_path(f.id), class: 'btn btn-info' %>
+    <%= link_to "編集", edit_admin_post_path, class: 'btn btn-success' %>
+    <%= link_to "削除", "#", method: :delete, class: 'btn btn-danger' %>
+  </td>
+<%end%>

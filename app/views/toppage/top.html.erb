@@ -8,7 +8,10 @@
       </li>
     <% end %>
   </ul>
-  <div class="fixed-text"><%=link_to "あなただけの美術館を作ろう" ,new_user_path %></div>
+  <div class="fixed-text">
+      <p>あなただけの美術館を作ろう</p>
+        <%= button_to "ゲストログインをする", guest_login_path, method: :post %>
+  </div>
 </div>
 <footer class="footer">
   <div class="container">

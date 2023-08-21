@@ -7,7 +7,8 @@ ruby "3.2.2"
 gem "rails", "~> 7.0.6"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'sprockets', '~> 4.0'
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
@@ -85,8 +86,20 @@ gem 'bcrypt'
 gem 'enum_help'
 gem "dockerfile-rails", ">= 1.5", :group => :development
 
-gem "pg", "~> 1.5"
 
 gem "sentry-ruby", "~> 5.10"
 
 gem "sentry-rails", "~> 5.10"
+# bootstrap5の場合この2つが必要
+gem 'kaminari'
+gem 'bootstrap5-kaminari-views'
+
+#画像をS3に送るのに必要
+group :production do
+  gem 'fog-aws'
+  gem 'pg'
+  gem 'dotenv-rails'
+  gem 'aws-sdk-s3'
+end
+
+#管理者画面

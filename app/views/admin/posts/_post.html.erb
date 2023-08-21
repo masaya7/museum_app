@@ -1,0 +1,16 @@
+<tr>
+  <td>
+    ID:<%= post.id %>
+  </td>
+  <td>
+    <%= post.title %>
+  </td>
+  <td>
+    <%= post.user.name %>
+  </td>
+  <td>
+    <%= link_to "詳細", admin_post_path(post.id), class: 'btn btn-info' %>
+    <%= link_to "編集", edit_admin_post_path(post.id), class: 'btn btn-success' %>
+    <%= link_to "削除", "#", method: :delete, class: 'btn btn-danger' %>
+  </td>
+</tr>

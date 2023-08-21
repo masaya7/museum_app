@@ -2,12 +2,12 @@
 <%= form_with model:@post do |f| %>
   <p><%= f.label :image,"画像" %></p>
   <p><%= f.file_field :image %></p>
-  <p><%= f.label :title,"タイトル" %></p>
+  <p><%= f.label :title,"題名" %></p>
   <p><%= f.text_area :title %></p>
   <p><%= f.label :body,"投稿内容" %></p>
   <p><%= f.text_area :body %></p>
-  <p><%= f.submit "投稿", class: "btn btn-primary" %></p>
-  <div class="form-group">
+  <p class="form-group">
     <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
-  </div>
+  </p>
+  <p><%= f.submit "OK", class: "btn btn-primary" %></p>
 <% end %>

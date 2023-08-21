@@ -12,7 +12,7 @@
       </div>
       <div class="item-right">
         <li class="title">
-          <%=post.title.truncate(15)%>
+          <%="題名:" + post.title.truncate(15)%>
         </li>
         <li class="body">
           <%= post.body.truncate(100)%>
@@ -26,7 +26,7 @@
   <% end %>
 </ul>
 
-<h3 class="page-header">共感したもの<%= link_to "共感した感情ごとに見る",empathy_users_path%></h3> <!--投稿が横並び/スライドになるように変更する-->
+<h3 class="page-header">共感したもの<%= link_to "絵文字ごとに見る",empathy_users_path%></h3> <!--投稿が横並び/スライドになるように変更する-->
 <ul class="post-group">
   <% @post_empathy.each do |empathy| %>
     <ul class="post-group-item">
@@ -40,7 +40,7 @@
       </div>
       <div class="item-right">
         <li class="title">
-          <%= "title:" + empathy.post.title.truncate(10) %>
+          <%= "題名:" + empathy.post.title.truncate(10) %>
         </li>
         <li class="body">
           <%= empathy.post.body.truncate(50) %>
@@ -53,7 +53,7 @@
     </ul>
   <% end %>
 </ul>
-<h3 class="page-header">下書き</h3>
+<h3 class="page-header">下書き<%=link_to "下書き一覧を見る", draft_posts_path, method: :get%></h3>
 <ul class="post-group">
   <% @post_draft.each do |post| %>
     <ul class="post-group-item">
@@ -67,14 +67,14 @@
       </div>
       <div class="item-right">
         <li class="title">
-          <%= "title:" + post.title.truncate(10) %>
+          <%= "題名:" + post.title.truncate(10) %>
         </li>
         <li class="body">
           <%= post.body.truncate(50) %>
-          <%= link_to "詳しく読む", post_path(post.id) %>
+          <%= link_to "全文", post_path(post.id) %>
         </li>
         <li class="button">
-          <%= render "posts/btn", post: post %>
+          <%=link_to "編集する", edit_post_path(post), method: :get%>
         </li>
       </div>
     </ul>

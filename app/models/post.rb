@@ -5,6 +5,10 @@ class Post < ApplicationRecord
   has_many :empathies
   has_one_attached :image
 
+  validates :title, presence: true, length: { maximum: 50 }
+  validates :body, presence: true, length: { maximum: 4000 }
+  validates :image, presence: true
+
   enum status: { published: 0, draft: 1 }
 
   def empathize_by?(user)
