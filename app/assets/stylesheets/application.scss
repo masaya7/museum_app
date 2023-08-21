@@ -1,18 +1,20 @@
-/*このファイルを修正するとcss変わる*/
 
 @import "bootstrap";
 /* postのindex */
+.page-header{
+  margin-top: 100px;
+}
 .post-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px; 
+  gap: 20px;
 }
 
 .post-group-item {
   position: relative;
   list-style: none;
-  width: calc(50% - 20px); 
-  padding: 20px; 
+  width: calc(50% - 20px);
+  padding: 20px;
   box-sizing: border-box;
   display: flex;
   align-items: flex-start;
@@ -86,12 +88,14 @@
 
 /*header*/
 .fixed-navbar {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
+  height: 50px;
 }
+
 /*footer*/
 .footer {
   position: fixed;
