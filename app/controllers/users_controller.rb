@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.save
     log_in @user
-    redirect_to @user
+    redirect_to posts_path
   end
 
   def show

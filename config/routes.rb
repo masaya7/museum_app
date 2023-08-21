@@ -24,4 +24,9 @@ Rails.application.routes.draw do
       get :service
     end
   end
+
+  namespace :admin do
+    resources :users
+    resources :posts
+  end
 end

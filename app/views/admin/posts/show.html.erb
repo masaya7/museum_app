@@ -1,0 +1,25 @@
+<div class="show">
+  <%= form_with model:@post do |f| %>
+    <ul class="show-group">
+      <ul class="show-item-left">
+        <ul class="show-image">
+          <li class="show-frame">
+            <%= image_tag("額縁.png", alt: "額縁", class: "show-frame-inner") %>
+            <%= image_tag @post.image.url,class: "show-image-inner"%>
+          </li>
+        </ul>
+      </ul>
+      <ul class="show-item-right">
+        <li class="show-title">
+          <%= "題名:" + @post.title.truncate(15) %>
+        </li>
+        <li class="show-body">
+          <%= @post.body %>
+        </li>
+        <li class="button">
+          <%= render "posts/btn", post: @post %>
+        </li>
+      </ul>
+    </ul>
+  <% end %>
+</div>
