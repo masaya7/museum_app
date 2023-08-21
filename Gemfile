@@ -90,7 +90,11 @@ gem "dockerfile-rails", ">= 1.5", :group => :development
 gem "sentry-ruby", "~> 5.10"
 
 gem "sentry-rails", "~> 5.10"
-#awsを使うのに必要
+# bootstrap5の場合この2つが必要
+gem 'kaminari'
+gem 'bootstrap5-kaminari-views'
+
+#画像をS3に送るのに必要
 group :production do
   gem 'fog-aws'
   gem 'pg'
