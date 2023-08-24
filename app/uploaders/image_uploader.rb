@@ -19,20 +19,8 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    'sample.png'
+    'sample.jpg'
   end
-
-  # Process files as they are uploaded:
-  # process scale: [200, 300]
-  #
-  # def scale(width, height)
-  #   # do something
-  # end
-
-  # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process resize_to_fit: [50, 50]
-  # end
 
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -40,9 +28,14 @@ class ImageUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
-  # Override the filename of the uploaded files:
-  # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+# 投稿画像と額縁を合成
+  def compose_images(frame_path, post_image_path, composed_image_path)
+    frameq = MiniMagick::Image.open(frame_path)
+    post_image = MiniMagick::Image.open(post_image_path)
+    post_image.resize "#{frameq.width}x#{frameq.height}^"
+    composed_image = frameq.composite(post_image) do |c|
+      c.compose "Over"
+    end
+    composed_image.write(composed_image_path)
+  end
 end

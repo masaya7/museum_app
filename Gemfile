@@ -101,5 +101,3 @@ group :production do
   gem 'dotenv-rails'
   gem 'aws-sdk-s3'
 end
-
-#管理者画面

@@ -13,10 +13,14 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(new_post_params)
+    frame_path = Rails.root.join("app/assets/images/額縁.png").to_s
+    composed_image_path = Rails.root.join("public/uploads/post/image/#{Time.now.to_i}.png").to_s
+    post_image_path = @post.image.path
+    ImageUploader.new.compose_images(frame_path, post_image_path, composed_image_path)
+    @post.composed_image_path = composed_image_path
     if @post.save
       redirect_to index_path
     else
-      @post = Post.new(new_post_params)
       flash.now[:danger] = "未入力があります。写真、題名、投稿内容すべて入力してください。下書きにするときも何か入れてください"
       render 'new'
     end

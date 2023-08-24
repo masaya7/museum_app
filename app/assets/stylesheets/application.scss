@@ -47,7 +47,6 @@
   padding-top: 100%;
   max-width: 70%;
   margin: 0;
-  background: url("額縁.png") center/cover no-repeat;
 }
 
 .frame-inner-image {
@@ -139,7 +138,7 @@
 .slideshow {
   display: flex;
   width: calc(100vw * 26 * 3);
-  animation: loop-slide 100s infinite linear 1s both;
+  animation: loop-slide 100s infinite linear 1s both; /*速度を変える*/
 }
 
 @keyframes loop-slide {
@@ -213,7 +212,7 @@
 
 .show-image {
   list-style: none;
-  position: relative; /* Add position property */
+  position: relative;
   width: 100%;
   justify-content: center;
   margin: 0;
@@ -230,7 +229,7 @@
   position: relative;
   width: 130%;
   overflow: hidden;
-  z-index: 1; /* Adjust z-index */
+  z-index: 1;
 }
 
 

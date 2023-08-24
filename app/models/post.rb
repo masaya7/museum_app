@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :empathies
   has_one_attached :image
+  attr_accessor :composed_image_path
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :body, presence: true, length: { maximum: 4000 }
