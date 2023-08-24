@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   mount_uploader :image, ImageUploader
 
-  belongs_to :user
+  belongs_to :user, foreign_key: "user_id", class_name: "User"
   has_many :empathies
   has_one_attached :image
   attr_accessor :composed_image_path
