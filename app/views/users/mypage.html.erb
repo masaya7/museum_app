@@ -5,7 +5,6 @@
       <div class="item-left">
         <li class="image">
           <div class="frame-image">
-            <%= image_tag("額縁.png", alt: "額縁", class: "frame-inner-image") %>
             <%= image_tag(post.image_url, size:"120x160",class:"content-image")%>
           </div>
         </li>
@@ -26,14 +25,13 @@
   <% end %>
 </ul>
 
-<h3 class="page-header">共感したもの<%= link_to "絵文字ごとに見る",empathy_users_path%></h3> <!--投稿が横並び/スライドになるように変更する-->
+<h3 class="page-header">共感したもの<%= button_to "絵文字ごとに見る",empathy_users_path, class: "btn btn-primary"%></h3> <!--投稿が横並び/スライドになるように変更する-->
 <ul class="post-group">
   <% @post_empathy.each do |empathy| %>
     <ul class="post-group-item">
       <div class="item-left">
         <li class="image">
           <div class="frame-image">
-            <%= image_tag("額縁.png", alt: "額縁", class: "frame-inner-image") %>
             <%= image_tag empathy.post.image.url, size:"120x160",class: "content-image"%>
           </div>
         </li>
@@ -53,14 +51,13 @@
     </ul>
   <% end %>
 </ul>
-<h3 class="page-header">下書き<%=link_to "下書き一覧を見る", draft_posts_path, method: :get%></h3>
+<h3 class="page-header">下書き<%=button_to "下書き一覧を見る", draft_posts_path, method: :get, class: "btn btn-primary"%></h3>
 <ul class="post-group">
   <% @post_draft.each do |post| %>
     <ul class="post-group-item">
       <div class="item-left">
         <li class="image">
           <div class="frame-image">
-            <%= image_tag("額縁.png", alt: "額縁", class: "frame-inner-image") %>
             <%= image_tag(post.image_url, size:"120x160",class: "content-image") if post.image? %>
           </div>
         </li>
@@ -71,10 +68,10 @@
         </li>
         <li class="body">
           <%= post.body.truncate(50) %>
-          <%= link_to "全文", post_path(post.id) %>
+          <%= link_to "全文を読む", post_path(post.id) %>
         </li>
         <li class="button">
-          <%=link_to "編集する", edit_post_path(post), method: :get%>
+          <%=link_to "この投稿を編集する", edit_post_path(post), method: :get%>
         </li>
       </div>
     </ul>

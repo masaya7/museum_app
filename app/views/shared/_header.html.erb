@@ -1,7 +1,8 @@
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <%= image_tag 'logo.png', id: 'logo', size: '50x50' %>
+
+
+<nav class="navbar navbar-dark bg-dark" style="height: 60px;">
+    <div class="navbar-logo">
+      <%= image_tag 'logo.png',  size: '50x50' %>
       <% if logged_in? %>
         <%= link_to "museum-app", index_path, class: "navbar-brand" %>
       <% else %>
@@ -10,16 +11,27 @@
     </div>
     <ul class="navbar-nav d-none d-lg-flex flex-row">
       <% if logged_in? %>
-        <li><%= button_to"アプリの感想を送る", "https://forms.gle/Z29pLBCUiU6iszPB7"%></li>
         <li><%= button_to "投稿をする", new_post_path, method: :get %></li>
         <li><%= button_to 'ログアウト', logout_path, method: :delete, form: { data: { turbo_confirm: "本当に削除しますか？", turbo_frame: '_top' } } %></li>
-        <li><%= button_to @current_user.name + "さんでログイン中",mypage_users_path, method: :get %></li>
+        <li><%= button_to @current_user.name + "さんのマイページ",mypage_users_path, method: :get %></li>
+        <li>
+          <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown link
+            </a>
+            <ul class="dropdown-menu" >
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+        </li>
       <% else %>
         <div class="navbar-nav d-none d-lg-flex flex-row">
-          <li><%= link_to "ログイン", login_path %></li>
-          <li><%= link_to "新規登録", new_user_path %></li>
+          <li><%= button_to "ログイン", login_path %></li>
+          <li><%= button_to "新規登録", new_user_path %></li>
         </div>
       <% end %>
     </ul>
-  </div>
 </nav>
+<!--showのmin-height: 100vh;コメントアウトすると希望の形になる-->

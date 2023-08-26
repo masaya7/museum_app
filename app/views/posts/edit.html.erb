@@ -1,21 +1,30 @@
-<h3 class="page-header">編集ページ</h3>
-<div class="main">
+<div class="show">
   <%= form_with model:@post do |f| %>
-    <div class="content-left">
-      <div class='mt-3 mb-3'>
-        <%= image_tag @post.image.url,size: '400x400' %>
-      </div>
-      <p><%= f.label :title,"題名" %></p>
-      <p><%= f.text_area :title %></p>
-    </div>
-    <div class="content-light">
-      <p><%= f.label :body,"投稿内容" %></p>
-      <p><%= f.text_area :body %></p>
-    </div>
-    <div class="form-group">
-      <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
-    </div>
-    <div><%= f.submit "OK", class: "btn btn-primary" %></div>
+    <ul class="show-group">
+      <ul class="show-item-left">
+        <ul class="show-image">
+          <li class="show-frame">
+            <%= f.label :image,"画像" %>
+            <%= f.file_field :image %>
+            <%= image_tag("額縁.png", alt: "額縁", class: "show-frame-inner") %>
+            <%= image_tag @post.image.url,class: "show-image-inner"%>
+          </li>
+        </ul>
+      </ul>
+      <ul class="show-item-right">
+        <li class="show-title">
+          <%= f.label :title,"題名" %>
+          <%= f.text_area :title ,size: "25x1"%>
+        </li>
+        <li class="show-body">
+          <%= f.label :body,"投稿内容" %>
+          <%= f.text_area :body,size: "70x25" %>
+        </li>
+        <li class="button">
+          <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
+          <%= f.submit "OK", class: "btn btn-primary" %>
+        </li>
+      </ul>
+    </ul>
   <% end %>
 </div>
-
