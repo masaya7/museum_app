@@ -1,10 +1,10 @@
 'use strict';
 document.addEventListener('turbolinks:load', function() {
-  const mypageBtnContainer = document.getElementById('mypageBtnContainer'); //定数mypageBtnContainerにid:mypageBtnContainerの要素を代入する
-  const mypageDropdown = document.getElementById('mypageDropdown');
+  const mypageBtnContainer = document.getElementById('btn-group'); //定数mypageBtnContainerにid:mypageBtnContainerの要素を代入する
+  const mypageDropdown = document.getElementById('dropdown-menu');
 
   if (mypageBtnContainer && mypageDropdown) {
-    mypageBtnContainer.addEventListener('mouseenter', function() {//それぞれの用語定数・関数・イベントリスナー。。。を理解する
+    mypageBtnContainer.addEventListener('mouseenter', function() {
       mypageDropdown.style.display = 'block';
     });
 
