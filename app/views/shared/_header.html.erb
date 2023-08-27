@@ -2,7 +2,7 @@
   <%= javascript_import_module_tag "slideshow/script" %>
 <% end %>
 
-<nav class="navbar navbar-dark bg-dark" style="height: 60px;">
+<nav class="navbar navbar-dark bg-dark" style="height: 70px;">
     <div class="navbar-logo">
       <%= image_tag 'logo.png',  size: '50x50' %>
       <% if logged_in? %>
@@ -13,22 +13,22 @@
     </div>
     <ul class="navbar-nav d-none d-lg-flex flex-row">
       <% if logged_in? %>
-        <li><%= button_to "投稿をする", new_post_path, method: :get %></li>
-        <li><%= button_to 'ログアウト', logout_path, method: :delete, form: { data: { turbo_confirm: "本当に削除しますか？", turbo_frame: '_top' } } %></li>
-        <li><%= button_to @current_user.name + "さんのマイページ",mypage_users_path, method: :get %></li>
+        <li><a class="btn btn-secondary" href="/posts/new" role="button" style="height: 50px; width:120px;">新規投稿</a></li>
+        <li>
+          <div class="btn btn-secondary">
+            <%= button_to 'ログアウト', logout_path, method: :delete, form: { data: { turbo_confirm: "本当に削除しますか？", turbo_frame: '_top' } } ,class:"logoutbtn"%>
+          </div>
+        </li>
         <li>
           <div class="dropdown" id='dropdown'>
             <!-- 切替ボタンの設定 -->
-            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              ドロップダウンボタン
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="height: 50px; width:120px;">
+              マイページ
             </button>
-            <!-- ドロップメニューの設定 -->
             <ul class="dropdown-menu" id='dropdown-menu'>
-              <li><a class="dropdown-item" href="#">メニュー1</a></li>
-              <li><a class="dropdown-item" href="#">メニュー2</a></li>
-              <li><a class="dropdown-item" href="#">メニュー3</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">その他リンク</a></li>
+              <li><a class="dropdown-item" href="/users/mypage">自身の作品</a></li>
+              <li><a class="dropdown-item" href="/users/empathy">共感一覧</a></li>
+              <li><a class="dropdown-item" href="/posts/draft">下書き一覧</a></li>
             </ul>
           </div>
         </li>
