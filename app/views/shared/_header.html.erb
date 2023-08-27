@@ -1,4 +1,6 @@
-
+<% content_for :js do %>
+  <%= javascript_import_module_tag "slideshow/script" %>
+<% end %>
 
 <nav class="navbar navbar-dark bg-dark" style="height: 60px;">
     <div class="navbar-logo">
@@ -15,14 +17,18 @@
         <li><%= button_to 'ログアウト', logout_path, method: :delete, form: { data: { turbo_confirm: "本当に削除しますか？", turbo_frame: '_top' } } %></li>
         <li><%= button_to @current_user.name + "さんのマイページ",mypage_users_path, method: :get %></li>
         <li>
-          <div class="btn-group" id='btn-group'>
-            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Small button
+          <div class="dropdown" id='dropdown'>
+            <!-- 切替ボタンの設定 -->
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              ドロップダウンボタン
             </button>
+            <!-- ドロップメニューの設定 -->
             <ul class="dropdown-menu" id='dropdown-menu'>
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="#">メニュー1</a></li>
+              <li><a class="dropdown-item" href="#">メニュー2</a></li>
+              <li><a class="dropdown-item" href="#">メニュー3</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">その他リンク</a></li>
             </ul>
           </div>
         </li>

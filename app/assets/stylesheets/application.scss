@@ -111,10 +111,10 @@
 }
 /*header*/
 .dropdown-menu{
-  background-color: green;
+  background-color: white;
 }
 .dropdown-item{
-  background: red;
+  background-color: white;
 }
 
 /*top_page*/
@@ -134,7 +134,7 @@
 .fixed-text {
   position: fixed;
   top: 50%;
-  left: 0%;
+  left: 50%;
   transform: translate(-50%, -50%);
   font-size: 24px;
   color: white;
