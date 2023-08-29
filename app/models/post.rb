@@ -27,17 +27,21 @@ class Post < ApplicationRecord
       frame_path = 'app/assets/images/額縁.png'
       # 投稿画像を読み込む
       image = MiniMagick::Image.open(input_path)
+      image.resize"210x280!"
       # 額縁画像を読み込む
       frame = MiniMagick::Image.open(frame_path)
+      frame.resize "210x280!"
       # 投稿画像と額縁画像を合成する
       result = image.composite(frame) do |c|
         c.compose "Over"
       end
       # 合成した画像を保存する
-      output_path = Rails.root.join("public/uploads/post/image/#{Time.now.to_i}.png").to_s
+      output_filename = "#{Time.now.to_i}.png"
+      output_path = Rails.root.join("public", "uploads", "post", "image", output_filename)
       result.write(output_path)
-      self.compose_image = output_path # 合成した画像のパスをインスタンス変数に保存
-      self.composed_image_path = output_path.to_s
+      self.compose_image = "/uploads/post/image/#{output_filename}"
+      #self.compose_image = output_path # 合成した画像のパスをインスタンス変数に保存
     end
   end
 end
+

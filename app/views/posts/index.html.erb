@@ -5,7 +5,7 @@
       <div class="item-left">
         <li class="image">
           <div class="frame-image">
-            <%= image_tag @post.compose_image.url , size: "120x160", class: "content-image" %>
+            <%= image_tag post.compose_image, class: "content-image", width: "195", height: "260" %>
           </div>
         </li>
       </div>
@@ -14,7 +14,7 @@
           <%="題名:" + post.title.truncate(15) %>
         </li>
         <li class="body">
-          <%= post.body.truncate(100) %>
+          <%= post.body.truncate(1000) %>
           <%= link_to "詳しく読む", post_path(post.id) %>
         </li>
         <li class="button">

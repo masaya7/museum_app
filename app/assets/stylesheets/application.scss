@@ -45,7 +45,7 @@
 .frame-image {
   position: relative;
   width: 100%;
-  padding-top: 100%;
+  padding: 55%;
   max-width: 70%;
   margin: 0;
 }
@@ -258,13 +258,18 @@
 
 
 .show-image-inner{
-  width: 90%;
+  width: 110%;
   position: absolute;
   object-fit: contain;
-  top: 20%;
+  top: 5%;
   left: 18%;
 }
 .ynbutton{
   width: 120px;
   display: flex;
+}
+
+.notes{
+  width: 130%;
+  margin-bottom: 5px;
 }
