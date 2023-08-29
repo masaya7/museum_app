@@ -101,6 +101,9 @@
   width: 99px;
   margin: 0px;
 }
+.navbar-logo{
+  display: flex;
+}
 
 /*footer*/
 .footer {
@@ -128,9 +131,15 @@
 /*header*/
 .dropdown-menu{
   background-color: white;
+  width: 120px;
 }
 .dropdown-item{
   background-color: white;
+  width: 120px;
+  margin: 0px;
+}
+.dropdown-menu .ul{
+  width: 120px;
 }
 
 /*top_page*/
@@ -254,4 +263,8 @@
   object-fit: contain;
   top: 20%;
   left: 18%;
+}
+.ynbutton{
+  width: 120px;
+  display: flex;
 }

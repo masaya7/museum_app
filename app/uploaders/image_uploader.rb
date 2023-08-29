@@ -1,6 +1,6 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-  process resize_to_limit: [200, 200]
+  process resize_to_limit: [90, 120]
 
   # Choose what kind of storage to use for this uploader:
   if Rails.env.development?
@@ -27,15 +27,5 @@ class ImageUploader < CarrierWave::Uploader::Base
   def extension_whitelist
     %w(jpg jpeg gif png)
   end
-
-# 投稿画像と額縁を合成
-  def compose_images(frame_path, post_image_path, composed_image_path)
-    frameq = MiniMagick::Image.open(frame_path)
-    post_image = MiniMagick::Image.open(post_image_path)
-    post_image.resize "#{frameq.width}x#{frameq.height}^"
-    composed_image = frameq.composite(post_image) do |c|
-      c.compose "Over"
-    end
-    composed_image.write(composed_image_path)
-  end
 end
+

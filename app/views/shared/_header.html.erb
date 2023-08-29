@@ -1,43 +1,37 @@
-<% content_for :js do %>
-  <%= javascript_import_module_tag "slideshow/script" %>
-<% end %>
-
 <nav class="navbar navbar-dark bg-dark" style="height: 70px;">
-    <div class="navbar-logo">
-      <%= image_tag 'logo.png',  size: '50x50' %>
-      <% if logged_in? %>
-        <%= link_to "museum-app", index_path, class: "navbar-brand" %>
-      <% else %>
-        <%= link_to "museum-app", root_path, class: "navbar-brand" %>
-      <% end %>
-    </div>
-    <ul class="navbar-nav d-none d-lg-flex flex-row">
-      <% if logged_in? %>
-        <li><a class="btn btn-secondary" href="/posts/new" role="button" style="height: 50px; width:120px;">新規投稿</a></li>
-        <li>
-          <div class="btn btn-secondary">
-            <%= button_to 'ログアウト', logout_path, method: :delete, form: { data: { turbo_confirm: "本当に削除しますか？", turbo_frame: '_top' } } ,class:"logoutbtn"%>
-          </div>
-        </li>
-        <li>
-          <div class="dropdown" id='dropdown'>
-            <!-- 切替ボタンの設定 -->
-            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="height: 50px; width:120px;">
-              マイページ
-            </button>
-            <ul class="dropdown-menu" id='dropdown-menu'>
-              <li><a class="dropdown-item" href="/users/mypage">自身の作品</a></li>
-              <li><a class="dropdown-item" href="/users/empathy">共感一覧</a></li>
-              <li><a class="dropdown-item" href="/posts/draft">下書き一覧</a></li>
-            </ul>
-          </div>
-        </li>
-      <% else %>
-        <div class="navbar-nav d-none d-lg-flex flex-row">
-          <li><%= button_to "ログイン", login_path %></li>
-          <li><%= button_to "新規登録", new_user_path %></li>
+  <div class="navbar-logo">
+    <%= image_tag 'logo.png',  size: '50x50' %>
+    <% if logged_in? %>
+      <%= link_to "museum-app", index_path, class: "navbar-brand" %>
+    <% else %>
+      <%= link_to "museum-app", root_path, class: "navbar-brand" %>
+    <% end %>
+  </div>
+  <ul class="navbar-nav d-none d-lg-flex flex-row">
+    <% if logged_in? %>
+      <li><a class="btn btn-secondary" href="/posts/new" role="button" style="height: 50px; width:120px;">新規投稿</a></li>
+      <li>
+        <div class="btn btn-secondary">
+          <%= button_to 'ログアウト', logout_path, method: :delete, form: { data: { turbo_confirm: "本当に削除しますか？", turbo_frame: '_top' } } ,class:"logoutbtn"%>
         </div>
-      <% end %>
-    </ul>
+      </li>
+      <li>
+        <div class="dropdown" id='dropdown'>
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="height: 50px; width:120px;">
+            マイページ
+          </button>
+          <ul class="dropdown-menu" id='dropdown-menu'>
+            <li><a class="dropdown-item" href="/users/mypage">自身の作品</a></li>
+            <li><a class="dropdown-item" href="/users/empathy">共感一覧</a></li>
+            <li><a class="dropdown-item" href="/posts/draft">下書き一覧</a></li>
+          </ul>
+        </div>
+      </li>
+    <% else %>
+      <div class="navbar-nav d-none d-lg-flex flex-row">
+        <li><%= button_to "ログイン", login_path %></li>
+        <li><%= button_to "新規登録", new_user_path %></li>
+      </div>
+    <% end %>
+  </ul>
 </nav>
-<!--showのmin-height: 100vh;コメントアウトすると希望の形になる-->

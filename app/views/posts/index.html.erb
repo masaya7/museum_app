@@ -5,8 +5,7 @@
       <div class="item-left">
         <li class="image">
           <div class="frame-image">
-            <%= image_tag("額縁.png", alt: "額縁", class: "frame-inner-image") %>
-            <%= image_tag post.image.url, size: "120x160", class: "content-image" %>
+            <%= image_tag @post.compose_image.url , size: "120x160", class: "content-image" %>
           </div>
         </li>
       </div>

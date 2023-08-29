@@ -3664,7 +3664,7 @@ textarea.form-control-lg {
 .dropdown-item {
   display: block;
   width: 100%;
-  padding: 0.25rem 1rem;
+  padding: 5px;
   clear: both;
   font-weight: 400;
   color: #212529;
@@ -3970,7 +3970,7 @@ textarea.form-control-lg {
   padding-left: 0;
 }
 .navbar-nav .dropdown-menu {
-  position: static;
+  width: 120px;
 }
 
 .navbar-text {
