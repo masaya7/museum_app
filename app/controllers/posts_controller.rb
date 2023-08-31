@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     @posts = Post.published.order(created_at: :desc).page(params[:page]).per(10)
   end
 
-  def show;end
+  def show; end
 
   def new
     @post =Post.new
@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit;end
+  def edit; end
 
   def update
     if @post.update(post_params)
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
   end
 
   def draft
-    @post = current_user.posts.draft.order(created_at: :desc)
+    @post = current_user.posts.draft.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   private

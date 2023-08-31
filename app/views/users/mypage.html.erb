@@ -5,7 +5,7 @@
       <div class="item-left">
         <li class="image">
           <div class="frame-image">
-            <%= image_tag(post.image_url, size:"120x160",class:"content-image")%>
+            <%= image_tag post.compose_image, class: "content-image", width: "195", height: "260" %>
           </div>
         </li>
       </div>
@@ -23,4 +23,5 @@
       </div>
     </ul>
   <% end %>
+  <%= paginate @posts, theme: 'bootstrap-5' %>
 </ul>

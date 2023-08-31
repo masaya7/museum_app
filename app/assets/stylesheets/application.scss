@@ -141,6 +141,11 @@
 .dropdown-menu .ul{
   width: 120px;
 }
+.headerbtn{
+  height: 50px;
+  width:120px;
+  margin-right: 2px;
+}
 
 /*top_page*/
 
@@ -232,6 +237,7 @@
   padding-right: 10px;
   flex: 1;
   overflow-wrap: break-word;
+  border: 1px solid #ccc;
 }
 
 .show-image {
@@ -261,7 +267,7 @@
   width: 110%;
   position: absolute;
   object-fit: contain;
-  top: 5%;
+  top: 10%;
   left: 18%;
 }
 .ynbutton{
@@ -272,4 +278,22 @@
 .notes{
   width: 130%;
   margin-bottom: 5px;
+}
+
+.s-group{
+  list-style: none;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  border: 1px solid #ccc;
+  height: 700px;
+}
+.c-image{
+  width: 170%;
+  position: absolute;
+  object-fit: contain;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0%);
 }

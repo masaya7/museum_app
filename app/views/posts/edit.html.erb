@@ -1,11 +1,10 @@
+<h3 >編集</h3>
 <div class="show">
   <%= form_with model:@post do |f| %>
     <ul class="show-group">
       <ul class="show-item-left">
         <ul class="show-image">
           <li class="show-frame">
-            <%= f.label :image,"画像" %>
-            <%= f.file_field :image %>
             <%= image_tag("額縁.png", alt: "額縁", class: "show-frame-inner") %>
             <%= image_tag @post.image.url,class: "show-image-inner"%>
           </li>
@@ -21,7 +20,7 @@
           <%= f.text_area :body,size: "70x25" %>
         </li>
         <li class="button">
-          <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
+          <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select"} %>
           <%= f.submit "OK", class: "btn btn-primary" %>
         </li>
       </ul>

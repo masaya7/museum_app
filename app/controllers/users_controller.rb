@@ -16,9 +16,9 @@ class UsersController < ApplicationController
     redirect_to posts_path
   end
 
-  def show;end
+  def show; end
 
-  def edit;end
+  def edit; end
 
   def update
     if @user.update(user_update_params)
@@ -35,16 +35,16 @@ class UsersController < ApplicationController
   end
 
   def mypage
-    @posts = current_user.posts.published.order(created_at: :desc)
-    @post_empathy = current_user.empathies.where.not(empathy: nil).includes(:post).order(created_at: :desc)
-    @post_draft = current_user.posts.draft.order(created_at: :desc)
+    @posts = current_user.posts.published.order(created_at: :desc).page(params[:page]).per(10)
+    @post_empathy = current_user.empathies.where.not(empathy: nil).includes(:post).order(created_at: :desc).page(params[:page]).per(10)
+    @post_draft = current_user.posts.draft.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def empathy
-    @post_happy = current_user.empathies.where(empathy: :happy).includes(:post).order(created_at: :desc)
-    @post_sad = current_user.empathies.where(empathy: :sad).includes(:post).order(created_at: :desc)
-    @post_love = current_user.empathies.where(empathy: :love).includes(:post).order(created_at: :desc)
-    @post_anger = current_user.empathies.where(empathy: :anger).includes(:post).order(created_at: :desc)
+    @post_happy = current_user.empathies.where(empathy: :happy).includes(:post).order(created_at: :desc).page(params[:page]).per(10)
+    @post_sad = current_user.empathies.where(empathy: :sad).includes(:post).order(created_at: :desc).page(params[:page]).per(10)
+    @post_love = current_user.empathies.where(empathy: :love).includes(:post).order(created_at: :desc).page(params[:page]).per(10)
+    @post_anger = current_user.empathies.where(empathy: :anger).includes(:post).order(created_at: :desc).page(params[:page]).per(10)
   end
 
   private
