@@ -22,5 +22,3 @@ CarrierWave.configure do |config|
     config.fog_public = false
   end
 end
-
-

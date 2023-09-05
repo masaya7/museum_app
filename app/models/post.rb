@@ -5,7 +5,6 @@ class Post < ApplicationRecord
   belongs_to :user, foreign_key: "user_id", class_name: "User"
   has_many :empathies
   has_one_attached :image
-  attr_accessor :composed_image_path
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :body, presence: true, length: { maximum: 4000 }
@@ -41,6 +40,5 @@ class Post < ApplicationRecord
     output_path = Rails.root.join("public", "uploads", "post", "image", output_filename)
     result.write(output_path)
     self.compose_image = "/uploads/post/image/#{output_filename}"
-    # self.compose_image = output_path # 合成した画像のパスをインスタンス変数に保存
   end
 end

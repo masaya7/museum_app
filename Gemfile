@@ -46,7 +46,7 @@ gem "jquery-rails"
 gem "rails-ujs"
 
 # Use Sass to process CSS
-#gem "sassc-rails"
+# gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 #gem "image_processing", "~> 1.2"
@@ -95,9 +95,9 @@ gem 'kaminari'
 gem 'bootstrap5-kaminari-views'
 
 #画像をS3に送るのに必要
-group :production do
+
   gem 'fog-aws'
   gem 'pg'
   gem 'dotenv-rails'
   gem 'aws-sdk-s3'
-end
+

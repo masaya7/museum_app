@@ -10,13 +10,12 @@ development:
 test:
   <<: *default
   adapter: sqlite3
-  database: museum_msy_app_test
+  database: msy_app_test
 
 production:
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: museum_msy_app_production
-  username: museunmsyapp
+  database: msyapp1_production
+  username: msyapp1
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
-
