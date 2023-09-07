@@ -24,7 +24,7 @@ class Post < ApplicationRecord
     # 投稿画像のパス
     input_path = image.path
     # 額縁画像のパス
-    frame_path = 'app/assets/images/額縁.png'
+    frame_path = Rails.configuration.frame_image_path
     # 投稿画像を読み込む
     image = MiniMagick::Image.open(input_path)
     image.resize "210x280!"

@@ -6,4 +6,4 @@
 import "@hotwired/turbo-rails";
 import "./controllers";
 
-// import "./slideshow/endless.js";
+import "./slideshow/endless.js";

@@ -1,3 +1,7 @@
+<% content_for :js do %>
+  <%= javascript_import_module_tag "slideshow/endless" %>
+<% end %>
+
 <h3 class="page-header">みんなの作品</h3>
 <ul class="post-group">
   <% @posts.each do |post| %>
@@ -5,6 +9,7 @@
       <div class="item-left">
         <li class="image">
           <div class="frame-image">
+            
             <%= image_tag post.compose_image, class: "content-image", width: "195", height: "260" %>
           </div>
         </li>
@@ -19,6 +24,7 @@
         </li>
         <li class="button">
           <%= render "posts/btn", post: post %>
+          <%= button_to "削除", post_path(post), method: :delete %>
         </li>
       </div>
     </ul>
