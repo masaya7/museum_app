@@ -89,5 +89,5 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.frame_image_path = 'https://museum1-app.s3.amazonaws.com/uploads/額縁.png'
+  config.frame_image_path = 'https://museum1-app.s3.ap-northeast-1.amazonaws.com/uploads/frame.png'
 end
