@@ -1,7 +1,19 @@
+<% 
+=begin
+%>
+<% content_for :js do %>
+  <%= javascript_import_module_tag "slideshow/endless" %>
+<% end %>
+<%
+=end%>
+
+
+
+
 <div class="wrap">
-  <ul class="slideshow">
-    <%= (1..10).map do |num| %>
-      <li class="content">
+  <ul class="slideshow" data-controller="slideshow" id="slideshow">
+    <% (1..3).each do |num| %>
+      <li class="content" data-slideshow-target="content">
         <%= image_tag "photo#{num}.jpg", class: 'slide-image' %>
         <%= image_tag "image#{num}.jpg", class: 'slide-image' %>
         <%= image_tag "graph#{num}.jpg", class: 'slide-image' %>
@@ -9,10 +21,18 @@
     <% end %>
   </ul>
   <div class="fixed-text">
-      <p>あなただけの美術館を作ろう</p>
-        <%= button_to "ゲストログインをする", guest_login_path, method: :post %>
+    <p>【みなさまへ】</p>
+    <p>弊館は光り輝く「推し」を絵画のように飾り展示する美術館です</p>
+    <p>【作品を制作する方へ】</p>
+    <p>画像1枚と推しポイントで1作品となります。</p>
+    <p>「推しポイント」は4000字以内でお願いいたします</p>
+    <p>【鑑賞時のご案内】</p>
+    <p>展示作品には😀😢😍😤の絵文字ボタンがあります</p>
+    <p>作品を読んで近い感情の絵文字で推してください</p>
+    <%= button_to "ゲストログインをする", guest_login_path, method: :post %>
   </div>
 </div>
+
 <footer class="footer">
   <div class="container">
     <p class="text-muted"><%= render "shared/footer" %></p>

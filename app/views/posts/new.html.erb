@@ -1,13 +1,31 @@
-<h3 class="page-header">投稿しよ！</h3>
-<%= form_with model:@post do |f| %>
-  <p><%= f.label :image,"画像" %></p>
-  <p><%= f.file_field :image %></p>
-  <p><%= f.label :title,"題名" %></p>
-  <p><%= f.text_area :title %></p>
-  <p><%= f.label :body,"投稿内容" %></p>
-  <p><%= f.text_area :body %></p>
-  <p class="form-group">
-    <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
-  </p>
-  <p><%= f.submit "OK", class: "btn btn-primary" %></p>
-<% end %>
+<div class="show">
+  <%= form_with model:@post do |f| %>
+    <ul class="show-group">
+      <ul class="show-item-left">
+        <ul class="show-image">
+          <li class="show-frame">
+            <p class="notes">額縁がつくため画像の周辺が隠れてしまいます。ご注意ください</p>
+            <%= f.label :image,"画像" %>
+            <%= f.file_field :image %>
+            <%= image_tag("額縁.png", alt: "額縁", class: "show-frame-inner",size:"530x710") %>
+            <%= image_tag("sample.jpg",class: "show-image-inner",size:"530x710")%>
+          </li>
+        </ul>
+      </ul>
+      <ul class="show-item-right">
+        <li class="show-title">
+          <%= f.label :title,"題名" %>
+          <%= f.text_area :title ,size: "25x1"%>
+        </li>
+        <li class="show-body">
+          <%= f.label :body,"投稿内容" %>
+          <%= f.text_area :body,size: "70x25" %>
+        </li>
+        <li class="button">
+          <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select"} %>
+          <%= f.submit "OK", class: "btn btn-primary" %>
+        </li>
+      </ul>
+    </ul>
+  <% end %>
+</div>

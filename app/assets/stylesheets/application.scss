@@ -19,6 +19,7 @@
   display: flex;
   align-items: flex-start;
   border: 1px solid #ccc;
+  background-color: #fff;
 }
 
 .item-left,
@@ -44,10 +45,9 @@
 .frame-image {
   position: relative;
   width: 100%;
-  padding-top: 100%;
+  padding: 55%;
   max-width: 70%;
   margin: 0;
-  background: url("額縁.png") center/cover no-repeat;
 }
 
 .frame-inner-image {
@@ -81,9 +81,28 @@
 
 .button {
   margin-top: auto;
-  width: 100%;
   padding: 5px 10px;
   text-align: center;
+}
+.list-group-item{
+  margin: 5px;
+}
+.btn{
+  display: inline-block;
+  padding: 10px 10px;
+}
+.logoutbtn{
+  color:white;
+  background-color: #6c757d;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  height: 29px;
+  width: 99px;
+  margin: 0px;
+}
+.navbar-logo{
+  display: flex;
 }
 
 /*footer*/
@@ -109,7 +128,24 @@
   text-decoration: none;
   color: #333;
 }
-
+/*header*/
+.dropdown-menu{
+  background-color: white;
+  width: 120px;
+}
+.dropdown-item{
+  background-color: white;
+  width: 120px;
+  margin: 0px;
+}
+.dropdown-menu .ul{
+  width: 120px;
+}
+.headerbtn{
+  height: 50px;
+  width:120px;
+  margin-right: 2px;
+}
 
 /*top_page*/
 
@@ -134,12 +170,13 @@
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   z-index: 2;
+  width: auto;
 }
 
 .slideshow {
   display: flex;
   width: calc(100vw * 26 * 3);
-  animation: loop-slide 100s infinite linear 1s both;
+  animation: loop-slide 100s infinite linear 1s both; /*速度を変える*/
 }
 
 @keyframes loop-slide {
@@ -158,8 +195,6 @@
   filter: opacity(0.7) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
 }
 
-
-
 /* post show */
 
 .show {
@@ -167,7 +202,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
-  min-height: 100vh;
+  /*min-height: 100vh;*/
 }
 
 .show-group {
@@ -202,18 +237,12 @@
   padding-right: 10px;
   flex: 1;
   overflow-wrap: break-word;
-}
-
-.button {
-  margin-top: auto;
-  width: 100%;
-  padding: 5px 10px;
-  text-align: center;
+  border: 1px solid #ccc;
 }
 
 .show-image {
   list-style: none;
-  position: relative; /* Add position property */
+  position: relative;
   width: 100%;
   justify-content: center;
   margin: 0;
@@ -230,14 +259,41 @@
   position: relative;
   width: 130%;
   overflow: hidden;
-  z-index: 1; /* Adjust z-index */
+  z-index: 1;
 }
 
 
 .show-image-inner{
-  width: 90%;
+  width: 110%;
   position: absolute;
   object-fit: contain;
-  top: 20%;
+  top: 10%;
   left: 18%;
+}
+.ynbutton{
+  width: 120px;
+  display: flex;
+}
+
+.notes{
+  width: 130%;
+  margin-bottom: 5px;
+}
+
+.s-group{
+  list-style: none;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  border: 1px solid #ccc;
+  height: 700px;
+}
+.c-image{
+  width: 170%;
+  position: absolute;
+  object-fit: contain;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0%);
 }

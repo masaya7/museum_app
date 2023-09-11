@@ -54,7 +54,7 @@ gem "rails-ujs"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem 'rubocop', '~> 1.54', require: false
+  gem 'rubocop-rails', require: false
   gem 'rspec-rails'
   gem "factory_bot_rails"
 end
@@ -95,11 +95,9 @@ gem 'kaminari'
 gem 'bootstrap5-kaminari-views'
 
 #画像をS3に送るのに必要
-group :production do
+
   gem 'fog-aws'
   gem 'pg'
   gem 'dotenv-rails'
   gem 'aws-sdk-s3'
-end
 
-#管理者画面

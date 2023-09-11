@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for museummsyapp on 2023-08-19T19:33:47+09:00
+# fly.toml app configuration file generated for msyapp1 on 2023-09-05T10:12:49+09:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "museummsyapp"
+app = "msyapp1"
 primary_region = "nrt"
 console_command = "/rails/bin/rails console"
 

@@ -67,4 +67,7 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+  # cssを反映させる
+  config.assets.digest = true
+  config.frame_image_path = 'app/assets/images/額縁.png'
 end

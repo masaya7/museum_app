@@ -1,25 +1,37 @@
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <%= image_tag 'logo.png', id: 'logo', size: '50x50' %>
-      <% if logged_in? %>
-        <%= link_to "museum-app", index_path, class: "navbar-brand" %>
-      <% else %>
-        <%= link_to "museum-app", root_path, class: "navbar-brand" %>
-      <% end %>
-    </div>
-    <ul class="navbar-nav d-none d-lg-flex flex-row">
-      <% if logged_in? %>
-        <li><%= button_to"アプリの感想を送る", "https://forms.gle/Z29pLBCUiU6iszPB7"%></li>
-        <li><%= button_to "投稿をする", new_post_path, method: :get %></li>
-        <li><%= button_to 'ログアウト', logout_path, method: :delete, form: { data: { turbo_confirm: "本当に削除しますか？", turbo_frame: '_top' } } %></li>
-        <li><%= button_to @current_user.name + "さんでログイン中",mypage_users_path, method: :get %></li>
-      <% else %>
-        <div class="navbar-nav d-none d-lg-flex flex-row">
-          <li><%= link_to "ログイン", login_path %></li>
-          <li><%= link_to "新規登録", new_user_path %></li>
-        </div>
-      <% end %>
-    </ul>
+<nav class="navbar navbar-dark bg-dark" style="height: 70px;">
+  <div class="navbar-logo">
+    <%= image_tag 'logo.png',  size: '50x50' %>
+    <% if logged_in? %>
+      <%= link_to "museum-app", index_path, class: "navbar-brand" %>
+    <% else %>
+      <%= link_to "museum-app", root_path, class: "navbar-brand" %>
+    <% end %>
   </div>
+  <ul class="navbar-nav d-none d-lg-flex flex-row">
+    <% if logged_in? %>
+      <li><a class="btn btn-secondary headerbtn" href="/posts/new" role="button" >新規投稿</a></li>
+      <li>
+        <div class="dropdown headerbtn" id='dropdown'>
+          <button type="button" class="btn btn-secondary dropdown-toggle headerbtn" data-bs-toggle="dropdown" aria-expanded="false">
+            マイページ
+          </button>
+          <ul class="dropdown-menu " id='dropdown-menu'>
+            <li><a class="dropdown-item" href="/users/mypage">自身の作品</a></li>
+            <li><a class="dropdown-item" href="/users/empathy">共感一覧</a></li>
+            <li><a class="dropdown-item" href="/posts/draft">下書き一覧</a></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="btn btn-secondary headerbtn">
+          <%= button_to 'ログアウト', logout_path, method: :delete, form: { data: { turbo_confirm: "本当に削除しますか？", turbo_frame: '_top' } } ,class:"logoutbtn"%>
+        </div>
+      </li>
+    <% else %>
+      <div class="navbar-nav d-none d-lg-flex flex-row">
+        <li><a class="btn btn-secondary headerbtn" href="/login" role="button" >ログイン</a></li>
+        <li><a class="btn btn-secondary headerbtn" href="/users/new" role="button" >新規作成</a></li>
+      </div>
+    <% end %>
+  </ul>
 </nav>

@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+
   def index
     @posts = Post.published.order(created_at: :desc).page(params[:page]).per(10)
   end
 
-  def show
-    @post = Post.find(params[:id])
-  end
+  def show; end
 
   def new
     @post =Post.new
@@ -22,12 +22,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-    @post = Post.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       flash[:success] = "編集しました"
       redirect_to draft_posts_path
@@ -37,22 +34,26 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     if @post.destroy
       redirect_to mypage_users_path,flash: {danger: "投稿を削除しました"}
     end
   end
 
   def draft
-    @post = current_user.posts.draft.order(created_at: :desc)
+    @post = current_user.posts.draft.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
   def post_params
-    params.require(:post).permit(:body, :image, :status, :title, :empathy)
+    params.require(:post).permit(:body, :image, :status, :title, :empathy,:compose_image)
   end
 
   def new_post_params
-    params.require(:post).permit(:body, :image, :title,:status)
+    params.require(:post).permit(:body, :image, :title,:status,:compose_image)
   end
 end

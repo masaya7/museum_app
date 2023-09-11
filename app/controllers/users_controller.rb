@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @user = User.all
@@ -15,16 +16,11 @@ class UsersController < ApplicationController
     redirect_to posts_path
   end
 
-  def show
-    @user = User.find(params[:id])
-  end
+  def show; end
 
-  def edit
-    @user = User.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_update_params)
       redirect_to @user
     else
@@ -33,26 +29,30 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     if @user.destroy
-    redirect_to root_path
+      redirect_to root_path
     end
   end
 
   def mypage
-    @posts = current_user.posts.published.order(created_at: :desc)
-    @post_empathy = current_user.empathies.where.not(empathy: nil).includes(:post).order(created_at: :desc)
-    @post_draft = current_user.posts.draft.order(created_at: :desc)
+    @posts = current_user.posts.published.order(created_at: :desc).page(params[:page]).per(10)
+    @post_empathy = current_user.empathies.where.not(empathy: nil).includes(:post).order(created_at: :desc).page(params[:page]).per(10)
+    @post_draft = current_user.posts.draft.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def empathy
-    @post_happy = current_user.empathies.where(empathy: :happy).includes(:post).order(created_at: :desc)
-    @post_sad = current_user.empathies.where(empathy: :sad).includes(:post).order(created_at: :desc)
-    @post_love = current_user.empathies.where(empathy: :love).includes(:post).order(created_at: :desc)
-    @post_anger = current_user.empathies.where(empathy: :anger).includes(:post).order(created_at: :desc)
+    @post_happy = current_user.empathies.where(empathy: :happy).includes(:post).order(created_at: :desc).page(params[:page]).per(10)
+    @post_sad = current_user.empathies.where(empathy: :sad).includes(:post).order(created_at: :desc).page(params[:page]).per(10)
+    @post_love = current_user.empathies.where(empathy: :love).includes(:post).order(created_at: :desc).page(params[:page]).per(10)
+    @post_anger = current_user.empathies.where(empathy: :anger).includes(:post).order(created_at: :desc).page(params[:page]).per(10)
   end
 
   private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
     params.require(:user).permit(:email,:password,:password_confirmation, :name)
   end
@@ -62,4 +62,3 @@ class UsersController < ApplicationController
   end
 
 end
-

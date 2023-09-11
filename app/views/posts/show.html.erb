@@ -1,19 +1,19 @@
+<h3 >編集</h3>
 <div class="show">
   <%= form_with model:@post do |f| %>
-    <ul class="show-group">
+    <ul class="s-group">
       <ul class="show-item-left">
         <ul class="show-image">
           <li class="show-frame">
-            <%= image_tag("額縁.png", alt: "額縁", class: "show-frame-inner") %>
-            <%= image_tag @post.image.url,class: "show-image-inner"%>
+            <%= image_tag @post.compose_image, class: "c-image",size:"530x710" %>
           </li>
         </ul>
       </ul>
       <ul class="show-item-right">
-        <li class="show-title">
+        <li class="show-title",style="height: 25px;">
           <%= "題名:" + @post.title.truncate(15) %>
         </li>
-        <li class="show-body">
+        <li class="show-body",style="height: 500px;height:250px;">
           <%= @post.body %>
         </li>
         <li class="button">
